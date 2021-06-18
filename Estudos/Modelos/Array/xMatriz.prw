@@ -2,7 +2,7 @@
 
 User Function xMatriz()
 local aMatriz := {} 
-local aMatriz2 := Array(2,3)//ARRAY(COLUNA,LINHAS)
+local aMatriz2 := Array(2,3) //ARRAY(COLUNA,LINHAS)
 local x
 aMatriz2[1,1] := "MARIA"
 aMatriz2[1,2] := 30
@@ -13,10 +13,10 @@ aMatriz2[2,2] := 42
 aMatriz2[2,3] := "F"
 
 //INCLUIR REGISTRO
-AADD(aMatriz2,{"BRUNO"	,25,"M"})
-AADD(aMatriz2,{"ANTONIO",30,"M"})
-AADD(aMatriz2,{"JOAO"	,48,"M"})
-AADD(aMatriz2,{"JOSÉ"	,26,"M"})
+AADD(aMatriz2,{"BRUNO"	 ,25, "M"})
+AADD(aMatriz2,{"ANTONIO" ,30, "M"})
+AADD(aMatriz2,{"JOAO"	 ,48, "M"})
+AADD(aMatriz2,{"JOSÉ"	 ,26, "M"})
 //BUSCA NOME AO QUAL CONTEUDO 2 DO ARRAY 48
 nPos:= ASCAN(aMatriz2,{|x| X[2] == 48})
 	MSGINFO(aMatriz2[nPos,1])//PEGA CONTEUDO 1 ARMAZENADO EM FOR

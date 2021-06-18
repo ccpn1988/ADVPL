@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renomear recurso &quot;Formacao/MVC/XCUSTOMERVENDOR .prw&quot; a &quot;XCUSTOMERVENDORCAMPO .prw&quot;" description="Renomear recurso &quot;XCUSTOMERVENDOR .prw&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MVC/XCUSTOMERVENDOR .prw" name="XCUSTOMERVENDORCAMPO .prw" stamp="1559996524266" updateReferences="true"/>
+</session>

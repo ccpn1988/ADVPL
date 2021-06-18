@@ -1,0 +1,45 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function mvc01 ()
+
+Return()
+
+
+//-------------------------------------------------------------------
+/*/{Protheus.doc} ViewDef
+Definição do interface
+
+@author aluno
+
+@since 11/05/2019
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+
+Static Function ViewDef()
+Local oView
+Local oModel := ModelDef()
+
+oView := FWFormView():New()
+
+oView:SetModel(oModel)
+
+Return oView
+//-------------------------------------------------------------------
+/*/{Protheus.doc} ModelDef
+Definição do modelo de Dados
+
+@author aluno
+
+@since 11/05/2019
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+
+Static Function ModelDef()
+Local oModel
+
+oModel := MPFormModel():New('ModelName')
+
+Return oModel

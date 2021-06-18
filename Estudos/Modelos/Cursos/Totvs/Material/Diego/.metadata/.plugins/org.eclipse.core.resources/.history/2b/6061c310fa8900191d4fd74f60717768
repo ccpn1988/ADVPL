@@ -1,0 +1,79 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+/*CRIANDO UMA TELA COM INFORMAÇÔES DE CLIENTE E SE1 - A PAGAR*/
+User Function MVC04()
+Local oBrowser := FwmBrowse():New()
+
+	/*ATRIBUINDO AS PROPRIEDADES DO OBJETO BROWSER*/
+	oBrowser:setAlias("SA1")
+	oBrowser:setDescription("MVC - Análise de Crédito ( Clientes )")
+	/*LEGENDA DA TELA*/
+	oBrowser:AddLegend("A1_MSBLQL=='2'","BR_PINK", "Ativo")
+	oBrowser:AddLegend("A1_MSBLQL=='1'","BR_VERDE", "Desativado")
+	oBrowser:AddLegend("A1_MSBLQL==' '","BR_AZUL", "BRACO")
+	//Ativando o OBJETO - Nada pode ser colocado abaixo deste.
+	oBrowser:Activate()
+Return (NIL)
+
+/*SEMPRE NOSSOS BOTÔES RECEBERÀ ESTE NOME DESTA FUNCÂO POIS ESTA ENCAPSULADO*/
+Static Function MenuDef()
+	Private aRotina   := {}
+	//CRIANDO OS BOTÔES VISUALIZAR, INCLUIR, ALTERAR, EXCLUIR, COPIAR, IMPRIMIR ATRAVES DO AROTINA
+	AADD( aRotina, {"Analise de Crédito" , 'VIEWDEF.MVC04', 0, 2 , 0})
+	/* OBSERVAÇÕES
+	   AADD( aRotina, {"FUNÇÂO CUSTOMIZADA"    , 'U_TELA', 0, 6 , 0}) NÂO SEGUE UMA SEQUENCIA - PORÉM PODEMOS COLOCAR
+	   OU CHAMAR A FUNÇÂO DO MVC PARA CRIAR A ESTRUTURA 
+	   Local aRotina := FwMVCMenu('xMvcMod3')
+	*/
+	 //CRIANDO OS BOTÔES VISUALIZAR, INCLUIR, ALTERAR, EXCLUIR, COPIAR, IMPRIMIR
+Return(aRotina)
+
+//-------------------------------------------------------------------
+/*/{Protheus.doc} ModelDef
+Definição do modelo de Dados
+
+@author aluno
+
+@since 08/06/2019
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+
+Static Function ModelDef()
+Local oModel
+
+Local oStr1:= mldoStr1Str()
+oModel := MPFormModel():New('MDLSA1SE1')
+oModel:SetDescription('Análise de Crádito')
+oModel:addFields('SA1MASTER',,oStr1,,,{|oField, lCopy| fLoadSA1(oField, lCopy)})
+oModel:getModel('SA1MASTER'):SetDescription('Dados do Cliente')
+
+Return oModel
+
+Static Function fLoadSA1(oField,lCopy)
+Local aDados := {}
+	aAdd(aDados, {SA1->A1_COD, SA1->A1_LOJA, SA1->A1_NOME, SA1->A1_CONTATO, SA1->A1_TEL})
+	aAdd(aDados, Recno()) //INFORMANDO O RECNO DO REGISTRO
+Return aDados
+//-------------------------------------------------------------------
+/*/{Protheus.doc} mldoStr1Str()
+Retorna estrutura do tipo FWformModelStruct.
+
+@author aluno
+
+@since 08/06/2019
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+
+static function mldoStr1Str()
+Local oStruct := FWFormModelStruct():New()
+oStruct:AddTable('TSA1',,'Cadastro de Cliente')
+oStruct:AddField('Código','Código de Cliente' , 'A1_COD', 'C', 6, 0, , , {}, .F., , .F., .F., .T., , )
+oStruct:AddField('Loja','Informação Loja' , 'A1_LOJA', 'C', 2, 0, , , {}, .F., , .F., .F., .T., , )
+oStruct:AddField('Cliente','Nome Cliente' , 'A1_NOME', 'C', 50, 0, , , {}, .F., , .F., .F., .T., , )
+oStruct:AddField('Contato','Nome do Contato' , 'A1_CONTATO', 'C', 20, 0, , , {}, .F., , .F., .F., .T., , )
+oStruct:AddField('Telefone','Telefone do Cliente' , 'A1_TEL', 'C', 12, 0, , , {}, .F., , .F., .F., .T., , )
+
+return oStruct

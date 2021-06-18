@@ -1,0 +1,9 @@
+#Include 'Protheus.ch'
+
+User Function ConCEP()
+
+Local cURL := "http://cep.republicavirtual.com.br/web_cep.php?cep=05778150&formato=xml"
+Local cHTML := HTTPGET(cURL)//Permite Emular um cliente HTTP
+
+Return
+

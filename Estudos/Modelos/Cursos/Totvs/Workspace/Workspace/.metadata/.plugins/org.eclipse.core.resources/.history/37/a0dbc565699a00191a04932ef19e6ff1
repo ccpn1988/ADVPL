@@ -1,0 +1,19 @@
+#Include 'Protheus.ch'
+
+//WEBSERVICE CONSULTANDO DADOS EXTERNOS
+
+User Function zWebS()
+Local cUrl := "http://cep.republicavirtual.com.br/web_cep.php?cep=91010000&formato=xml"
+Local cHTML := HTTPGET(cUrl) //PERMITE EMULAR UM CLIENTE HTTP
+Local cError   := ""
+Local cWarning := ""
+Local oXml := NIL
+ 
+//Gera o Objeto XML
+oXml := XmlParser( cHTML, "_", @cError, @cWarning )
+
+MsgInfo(cHTML)
+
+
+Return
+

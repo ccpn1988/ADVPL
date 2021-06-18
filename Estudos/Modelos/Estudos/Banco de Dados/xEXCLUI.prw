@@ -1,0 +1,25 @@
+#Include 'Protheus.ch'
+User Function xEXCL()
+IF MSGYESNO("DESEJA EXECUTAR A ROTINA?")
+	U_xEXCLUI()
+	MSGINFO("PRODUTO " + SB1->B1_DESC + CRLF +;
+			"EXCLUIDO COM SUCESSO")
+END IF
+RETURN()
+
+
+//-------------------------------------------------------------------------
+User Function xEXCLUI()
+
+dbSelectArea("SB1")//SELECIONA A AREA
+dbSetOrder(1)//POSICIONA NO INDICE
+IF MSSEEK(xFILIAL("SB1") + 'TERCEIROS000001')//POSICIONA NO REGISTRO
+	RECLOCK("SB1",.F.) //ALTERAR
+		DBDELETE()
+	
+MSUNLOCK()//LIBERA O REGISTRO
+//CONFIRMSX8()//CONFIRMA INCLUSAO NUMERICA (GETSXENUM)
+END IF	
+Return
+
+

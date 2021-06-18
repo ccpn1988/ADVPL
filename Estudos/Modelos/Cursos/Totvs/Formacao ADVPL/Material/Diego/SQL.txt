@@ -1,0 +1,30 @@
+Local aDados := {} 
+Local cAlias := GetNextAlias()
+
+
+BeginSql Alias cAlias
+ 	column E1_VENCREA as Date
+ 	
+	Select E1_NUM,
+		   E1_PARCELA,
+	       E1_PREFIXO,
+	       E1_TIPO,
+	       E1_VENCREA,
+	       E1_VALOR,
+	       E1_SALDO
+	From %Table:SE1% SE1
+		Where E1_FILIAL = %xFILIAL:SE1%
+			AND E1_CLIENTE  = %EXP:SA1->A1_COD%
+			AND E1_LOJA     = %EXP:SA1->A1_LOJA%
+			AND E1_SALDO   >  0
+			AND %notDel%
+
+EndSql 
+
+aSql := GetLastQuery() //  informações sobre a query executada.
+	
+
+dbSelectArea(cAlias)
+(cAlias)->( dbGotop() )
+
+While ! (cAlias)->( EOF() ) 

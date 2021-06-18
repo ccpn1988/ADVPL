@@ -1,0 +1,15 @@
+Control BAR
+- Barra aberta ao clicar em outra ações
+
+MVC Ponto de Entrada
+Trabalha em um ponto onde o sistema nos permite interagir, validando ou removendo algumas validações.
+
+Sempre que vamos alterar, não precisamos passar a chave primaria.
+rotinas automáticas
+pag 87,289
+
+
+
+
+
+

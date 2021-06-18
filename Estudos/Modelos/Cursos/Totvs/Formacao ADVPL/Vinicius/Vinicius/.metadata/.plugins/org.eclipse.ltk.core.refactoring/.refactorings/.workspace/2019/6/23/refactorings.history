@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Excluir recurso &quot;FORMACAO/MVC/XCUSTUMERVENDOR.prw&quot;" deleteContents="false" description="Excluir recurso &quot;FORMACAO/MVC/XCUSTUMERVENDOR.prw&quot;" element1="/FORMACAO/MVC/XCUSTUMERVENDOR.prw" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1559996310542"/>&#x0A;<refactoring comment="Excluir recurso &quot;FORMACAO/MVC/XCUSTOMERVENDOR .prw&quot;" deleteContents="false" description="Excluir recurso &quot;FORMACAO/MVC/XCUSTOMERVENDOR .prw&quot;" element1="/FORMACAO/MVC/XCUSTOMERVENDOR .prw" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1560001323633"/>
+</session>

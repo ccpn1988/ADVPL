@@ -1,0 +1,16 @@
+#Include 'Protheus.ch'
+#include 'APWEBSRV.ch'
+
+WsService xWSWsData Description "Data de Hoje"
+
+	
+WsMethod GetData Description "Retornar a Data de Hoje"
+		WsData cRetData as Date
+		
+WsMethod GetData WsReceive x WsSend cRetDate WsService xWSWsData	
+	
+	Self:cRetData := Date())
+
+
+Return .T.
+

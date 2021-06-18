@@ -1,0 +1,16 @@
+#Include 'Protheus.ch'
+
+User Function xQualquerNome()
+Local oWs := WSXWSHORARIODF
+
+if oWs:GETDATA('123')
+	MsgInfo(oWs:dGETDATARESULT)
+EndIf
+
+If oWs:GETHORA('')
+	MsgInfo(oWs:cGETHORARESULT)
+
+EndIf
+
+Return
+

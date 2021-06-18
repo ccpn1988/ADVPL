@@ -1,0 +1,10 @@
+   // Cria uma linha em branco e preenche de acordo com o Inicializador-Padrao do Dic.Dados.
+   AAdd(aCols, Array(Len(aHeader)+1))
+   
+   For i := 1 To Len(aHeader)
+       aCols[1][i] := CriaVar(aHeader[i][2])
+   Next
+   
+   // Cria a ultima coluna para o controle da GetDados: deletado ou nao.
+   aCols[1][Len(aHeader)+1] := .F.
+   

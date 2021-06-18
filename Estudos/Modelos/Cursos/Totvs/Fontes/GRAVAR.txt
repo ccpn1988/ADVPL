@@ -1,0 +1,25 @@
+Static Function fGrava()
+	// Exercicio fazer a gravaÁ„o dos dados 
+Local lAlterar := .F.
+
+dbSelectArea("SZ0")
+dbSetOrder(1)
+lAlterar := MSSEEK(xFilial("SZ0")+cCodigo) 
+	
+RecLock("SZ0", ! lAlterar )
+	
+SZ0->Z0_COD    := cCodigo  
+SZ0->Z0_DATA   := dData    
+SZ0->Z0_PROD   := cProduto 
+SZ0->Z0_QTD    := nQtd     
+SZ0->Z0_VALOR  := nValor   
+
+If lAlterar 
+ ROLLBACKSX8()
+Else
+ ConfirmSX8()
+EndIf		
+	              
+msginfo("Grava do com sucesso","SÛQueN„o")
+
+Return

@@ -1,0 +1,11 @@
+#Include 'Protheus.ch'
+
+User Function xSQL1()
+
+LOCAL CSQL := " UPDATE SB1990 SET D_E_L_E_T_ = ' ' WHERE B1_FILIAL = '01' AND B1_COD = 'TERCEIROS000001')
+
+IF TCSQLEXEC(CSQL) <0
+	MSGSTOP( " TCSQLERROR() " +TCSQLERROR(),"ATENÇÃO!!!!")
+END IF
+Return
+

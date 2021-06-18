@@ -1,0 +1,15 @@
+#Include 'Protheus.ch'
+#Include 'APWEBSRV.ch'
+
+
+WsService XWsData Description "Data Atual"
+  
+  WsMethod Gethora Description "Retornar a Data e o ano Atual"
+    WsData cRetData as String 
+    WsData x        as String
+     
+    WsMethod GetData WsReceive x WsSend cRetdata WsService XWsData 
+    
+    Self:cRetData  := Data()
+      
+Return .T.

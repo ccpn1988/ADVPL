@@ -1,0 +1,7 @@
+*.BAK
+*.~pr
+*.~PR
+*.project
+*.vscode
+*.vscode/
+

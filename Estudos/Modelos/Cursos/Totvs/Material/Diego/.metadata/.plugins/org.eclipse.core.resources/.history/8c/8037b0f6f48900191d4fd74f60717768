@@ -1,0 +1,24 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function MVC04()
+Local oBrowser := FwmBrowse():New()
+
+	/*ATRIBUINDO AS PROPRIEDADES DO OBJETO BROWSER*/
+	oBrowser:setAlias("SA1")
+	oBrowser:setDescription("MVC - Clientes")
+	/*LEGENDA DA TELA*/
+	oBrowser:AddLegend("A1_MSBLQL=='2'","BR_PINK", "Ativo")
+	oBrowser:AddLegend("A1_MSBLQL=='1'","BR_VERDE", "Desativado")
+	oBrowser:AddLegend("A1_MSBLQL==' '","BR_AZUL", "BRACO")
+	//Ativando o OBJETO - Nada pode ser colocado abaixo deste.
+	oBrowser:Activate()
+
+
+Return (NIL)
+
+/*SEMPRE NOSSOS BOTÔES RECEBERÀ ESTE NOME DESTA FUNCÂO POIS ESTA ENCAPSULADO*/
+Static Function MenuDef()
+	Local aRotina := FwMVCMenu('MVC01')
+	 //CRIANDO OS BOTÔES VISUALIZAR, INCLUIR, ALTERAR, EXCLUIR, COPIAR, IMPRIMIR
+Return(aRotina)

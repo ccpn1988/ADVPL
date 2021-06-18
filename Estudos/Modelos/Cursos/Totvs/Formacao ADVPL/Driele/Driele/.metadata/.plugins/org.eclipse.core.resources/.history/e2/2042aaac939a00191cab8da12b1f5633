@@ -1,0 +1,11 @@
+#Include 'Protheus.ch'
+
+User Function xQualquerNome()
+Local oWs := WSXWSDATA():New()
+
+If oWs:GETDATA ('12')
+   MsgInfo(oWs:dGETDATARESULT)
+Endif   
+
+Return
+

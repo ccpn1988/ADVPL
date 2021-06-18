@@ -1,0 +1,77 @@
+WEBSERVICES.
+
+SOAP E REST
+
+REST E SOAP SAO DIFERENTES
+
+/*COMO FUNCIONAM*/
+soap  - Podemos colocar qualquer nome nos métodos - Criptografado
+rest - put / post / get / delete - Mais rápido e mais usado.
+
+WEBSERVICES
+INTEGRAÇÂO ENTRE AMBIENTES DIFERENTES - ATRAVES DE XML
+
+Cliente - Consome informações - Ou seja busca valores 
+Server - Fornece as informações.
+
+Como consumir. - MASHUP - Tipo se Webservices SOA - Conjunto de serviços.
+
+I - Cliente.
+
+HTTPGET - RETORNA o HTML
+Retorna um char, que devemos converster em XML.
+
+//Permite Emular um cliente HTTP
+HTTPGET(cURL)
+MsgInfo(oXml:_WEBSERVICECEP:_LOGRADOURO:TEXT,"Teste") - Por Campo
+
+Caso precisamos pegar tudo, devemos criar uma Array com a estrutura oXml:_WEBSERVICECEP;
+
+SERVIDOR PARA SER CONSUMIDO = WSDL - EXTENSÂO DE UM SERVIDOR DE WEBSERVICES
+
+SOAPUI - Ferramenta para Teste de WEBSERVICES
+
+REQUEST - ENVIO DE INFORMAÇÔES PARA UMA REQUISIÇÂO
+
+CTRl + N - Nova Fonte WSDL - Somente usado para consumir o webservice. - Usado pois monta um client local.
+
+CRIANDO UM SERVER DE WS
+Criamos um novo APO e UM NOVO BIN
+
+APONTAMOS OS INI PARA O NOVO AMBIENTES - CLIENT E SERVER
+
+Apos subir o novo server, vamos ABRIR o CLIENTE com SRVWIZARD
+
+IR EM MODULOS WEB
+COLOCAR WS PROTHEUS
+
+COLOCAR O NOME E HABILITAR O SERVIÇO COM A AINICIALIZAÇÂO
+
+
+ONSTART=__WSSTART
+ONCONNECT=__WSCONNECT
+/*AO COMENTARMOS ESTA LINHA PODEMOS SELECIONAR A EMPRESA AO ABRIR O PROTHEUS*/
+PREPAREIN=99,01
+
+DEPURAR O WEBSERVICES
+HABILITAMOS OS MULTITHREAD
+
+LOGAR NO SIGAMDI
+ENTRAR EM QQ MODULO
+
+SP_HELP - DES NO SQL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

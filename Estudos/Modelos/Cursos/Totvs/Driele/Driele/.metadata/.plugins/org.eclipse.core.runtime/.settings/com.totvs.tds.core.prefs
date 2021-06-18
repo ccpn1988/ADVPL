@@ -1,0 +1,8 @@
+TOTVSTaskTags=TODO\:Baixa;FIXME\:Media;XXX\:Alta;
+eclipse.preferences.version=1
+perspectiveToOpen=com.totvs.tds.sdk.perspective.TotvsPerspective
+preferenceIgnoreNFDebugFiles=true
+preferenceTimeJobServer=5
+preferenceTotvsOptimRepository=0
+tdsAppre=C\:/TOTVS/TOTVS Developer Studio/appre/win/appre.exe
+tdsAppre4GLP=C\:/TOTVS/TOTVS Developer Studio/appre4glp/win/ablpre.exe

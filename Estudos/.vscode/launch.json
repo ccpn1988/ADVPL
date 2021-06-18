@@ -1,0 +1,113 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"name": "Depuração do idioma TOTVS",
+			"program": "${command:AskForProgramName}",
+			"cwb": "${workspaceFolder}",
+			"smartclientBin": "C:/TOTVS/12.1.25/Protheus/bin/smartclient/smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true
+		}
+	],
+	"lastPrograms": [
+		{
+			"args": [],
+			"label": "U_xLOGIC01",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "u_BibConst",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_TDados",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_TVar",
+			"description": ""
+		},
+		{
+			"args": [
+				"ç",
+				"oes"
+			],
+			"label": "U_TFun",
+			"description": "ç oes"
+		},
+		{
+			"args": [],
+			"label": "U_TFuncoes",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_fFunc",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_zOper",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_zBloco",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_Lista",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_xBloco",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_Lbloco",
+			"description": ""
+		},
+		{
+			"args": [
+				" :="
+			],
+			"label": "U_nResp",
+			"description": " :="
+		},
+		{
+			"args": [],
+			"label": "U_CNBLOCO",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_RBLOCO",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_RCTIBL",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_CNAR001",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "U_CNAR002",
+			"description": ""
+		}
+	],
+	"lastProgramExecuted": "U_CNAR002"
+}

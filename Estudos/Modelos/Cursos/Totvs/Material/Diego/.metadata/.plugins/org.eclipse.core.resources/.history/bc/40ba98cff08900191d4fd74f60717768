@@ -1,0 +1,79 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function CUSTOMERVENDOR
+Local lRet := .T.
+Local oObj     := PARAMIXB[1]
+Local cIdPonto := PARAMIXB[2]
+Local cIdModel := PARAMIXB[3]
+
+
+  If cIdPonto == "MODELVLDACTIVE" // Verifica se pode ativação do modelo
+	      	// Podemos ultizar para adicionar alguma manutenção na estrutura dos campos
+	      	//  Validação para ativação do Model,
+	      	// Exemplo podemos Removendo o Inicializador padrão 
+	      	//oModel:GetStruct() Recuperando a estrutura dos campos
+	      	//oModel:GetStruct():SetProperty() // Propriedades dos campos
+		      	If oObj:GetOperation() == MODEL_OPERATION_INSERT
+		        	oObj:GetModel( "SA2MASTER" ):GetStruct():SetProperty('A2_COD',MODEL_FIELD_OBRIGAT,.F.) 
+		        	oObj:GetModel( "SA2MASTER" ):GetStruct():SetProperty('A2_LOJA',MODEL_FIELD_OBRIGAT,.F.)
+		   		EndIf
+	      	Return 	.T.
+	      Endif
+
+/*TUDO OK  - APOS CLICAR EM OK*/
+If cIdPonto == 'FORMPOS' .AND. cIdModel == "SA2MASTER"
+	If oObj:GetValue("A2_EST") == "RJ" 
+	//MsgInfo("Dados de outra empresa")
+ 		Help(NIL, NIL, "UF", NIL, "Não temos operação nesse estado", 1, 0, NIL, NIL, NIL, NIL, NIL, {"Procurar outra empresa"})
+ 	 	Return .F.
+	Endif
+Endif    
+
+If cIdPonto == 'FORMPRE' .AND. cIdModel == "SA2MASTER"
+	/*
+	If oObj:GetOperation() <> MODEL_OPERATION_INSERT
+		if oObj:GetValue("A2_EST") == " " //CANSETVALUE - BLOQUEIA CAMPO
+			Help(NIL, NIL, "UF", NIL, "Dado não Válido no campo Estado", 1, 0, NIL, NIL, NIL, NIL, NIL, {"Informe outro estado"})
+			Return .F.	
+		Elseif oObj:GetValue("A2_TIPO") <> "F" 
+			/*TRATANDO JANELA EXIBIDA AO ENCONTRAR O PROBLEMA
+			Help(NIL, NIL, "Tipo de pessoa", NIL, "Não Trabalhamos com este Tipo De Pessoa", 1, 0, NIL, NIL, NIL, NIL, NIL, {"Procurara uma outro Tipo para Trabalhar"})
+			Return .F.
+		EndIf
+	EndIf */
+	
+	/*VALIDANDO O CÒDIGO AO SER DIGITADO - VALIDANDO CAMPO AO SAIR*/
+	If PARAMIXB[4] == "SETVALUE" //CANSETVALUE - BLOQUEIA CAMPO
+		If PARAMIXB[5] == "A2_EST" .AND. PARAMIXB[6] == "RJ"
+			Help(NIL, NIL, "UF", NIL, "Dado não Válido no campo Estado", 1, 0, NIL, NIL, NIL, NIL, NIL, {"Informe outro estado"})
+			Return .F.	
+		EndIf
+	EndIf
+Endif    
+
+If cIdPonto == "BUTTONBAR" // Adiciona botão no enchoiceBar     				
+     Return { {'Exemplo', 'CLIPS', { || Msginfo( 'New Botton' ) }, 'Exemplo novo Botão' } } 	
+Endif    
+	
+Return lRet
+//-------------------------------------------------------------------
+/*/{Protheus.doc} ViewDef
+Definição do interface
+
+@author aluno
+
+@since 08/06/2019
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+
+Static Function ViewDef()
+Local oView
+Local oModel := ModelDef()
+
+oView := FWFormView():New()
+
+oView:SetModel(oModel)
+
+Return oView

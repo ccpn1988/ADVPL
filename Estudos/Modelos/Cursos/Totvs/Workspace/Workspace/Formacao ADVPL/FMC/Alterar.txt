@@ -1,0 +1,33 @@
+			For nLinha := 1 To Len( aCols ) // Quantidade de linha
+			
+				If nLinha <= Len(aAlt)
+			
+					dbGoto(aAlt[nLinha])
+					
+					RecLock(cAlias,.F. )
+						If aCols[nLinha ,Len(aHeader)+1]
+								DbDelete()
+						Else
+						 For nCampo := 1 To Len(aHeader)
+						 	(cAlias)->Z0_FILIAL := xFilial("SZ0")
+							(cAlias)->Z0_COD  := cCodigo
+							(cAlias)->Z0_DATA := dData
+							(cAlias)->Z0_NOME := cNome	
+						   FieldPut(FieldPos(aHeader[nCampo,2]),  aCols[nLinha,nCampo])
+						  Next nCampo 
+						EndIf
+					MsUnLock()
+				Else	
+
+					RecLock(cAlias,.T. )
+				
+						For nCampo := 1 To Len(aHeader)
+							(cAlias)->Z0_FILIAL := xFilial("SZ0")
+							(cAlias)->Z0_COD  := cCodigo
+							(cAlias)->Z0_DATA := dData
+							(cAlias)->Z0_NOME := cNome
+							FieldPut(FieldPos(aHeader[nCampo,2]),  aCols[nLinha,nCampo])
+						Next nCampo
+					MsUnLock()
+				Endif
+			Next nLinha

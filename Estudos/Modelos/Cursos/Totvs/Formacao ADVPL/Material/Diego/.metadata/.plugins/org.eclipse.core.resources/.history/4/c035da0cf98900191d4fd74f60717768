@@ -1,0 +1,30 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+/*CRIANDO UMA TELA COM INFORMAÇÔES DE CLIENTE E SE1 - A PAGAR*/
+User Function MVC04()
+Local oBrowser := FwmBrowse():New()
+
+	/*ATRIBUINDO AS PROPRIEDADES DO OBJETO BROWSER*/
+	oBrowser:setAlias("SA1")
+	oBrowser:setDescription("MVC - Análise de Crédito ( Clientes )")
+	/*LEGENDA DA TELA*/
+	oBrowser:AddLegend("A1_MSBLQL=='2'","BR_PINK", "Ativo")
+	oBrowser:AddLegend("A1_MSBLQL=='1'","BR_VERDE", "Desativado")
+	oBrowser:AddLegend("A1_MSBLQL==' '","BR_AZUL", "BRACO")
+	//Ativando o OBJETO - Nada pode ser colocado abaixo deste.
+	oBrowser:Activate()
+Return (NIL)
+
+/*SEMPRE NOSSOS BOTÔES RECEBERÀ ESTE NOME DESTA FUNCÂO POIS ESTA ENCAPSULADO*/
+Static Function MenuDef()
+	Private aRotina   := {}
+	//CRIANDO OS BOTÔES VISUALIZAR, INCLUIR, ALTERAR, EXCLUIR, COPIAR, IMPRIMIR ATRAVES DO AROTINA
+	AADD( aRotina, {"Analise de Crédito" , 'VIEWDEF.MVC04', 0, 2 , 0})
+	/* OBSERVAÇÕES
+	   AADD( aRotina, {"FUNÇÂO CUSTOMIZADA"    , 'U_TELA', 0, 6 , 0}) NÂO SEGUE UMA SEQUENCIA - PORÉM PODEMOS COLOCAR
+	   OU CHAMAR A FUNÇÂO DO MVC PARA CRIAR A ESTRUTURA 
+	   Local aRotina := FwMVCMenu('xMvcMod3')
+	*/
+	 //CRIANDO OS BOTÔES VISUALIZAR, INCLUIR, ALTERAR, EXCLUIR, COPIAR, IMPRIMIR
+Return(aRotina)

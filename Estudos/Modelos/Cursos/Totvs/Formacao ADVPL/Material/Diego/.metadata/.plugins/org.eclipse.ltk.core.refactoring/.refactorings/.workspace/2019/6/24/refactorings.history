@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Excluir recurso &quot;Formacao/Relatórios&quot;" deleteContents="false" description="Excluir recurso &quot;Formacao/Relatórios&quot;" element1="/Formacao/Relatórios" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1560616890781"/>
+</session>

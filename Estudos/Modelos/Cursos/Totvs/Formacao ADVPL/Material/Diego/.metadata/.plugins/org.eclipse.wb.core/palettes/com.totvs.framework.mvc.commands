@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<moveEntry
+		id="com.totvs.framework.mvc.forms com.totvs.framework.mvcdesigner.ui.view.FWFormGrid"
+		category="com.totvs.framework.mvc.forms"
+		nextEntry="com.totvs.framework.mvc.forms com.totvs.framework.mvcdesigner.ui.view.FWOtherObject"/>
+</commands>

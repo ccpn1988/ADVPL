@@ -1,0 +1,14 @@
+1556977120652	Renomear recurso "XCADMOD2.prw"
+1557001153552	Mover "CNPJ.prw" a "Lógica"
+1557001173332	Mover "Escopo.prw" a "Lógica"
+1557001205065	Mover "xEXCLUI.prw" a "Banco de Dados"
+1557001215861	Move 1 resources to 'Lógica'
+1557001226220	Move 1 resources to 'Banco de Dados'
+1557001242156	Mover "xExAuto2.prw" a "Banco de Dados"
+1557001251265	Move 1 resources to 'Tela Mod2'
+1557001257249	Mover "xCadMod01.prw" a "TelaMod1"
+1557001270436	Move 1 resources to 'TelaMod1'
+1557001280154	Move 1 resources to 'TelaMod1'
+1557001282686	Move 1 resources to 'TelaMod1'
+1557001284498	Move 1 resources to 'TelaMod1'
+1557001409570	Mover "xMatriz.prw" a "Array"

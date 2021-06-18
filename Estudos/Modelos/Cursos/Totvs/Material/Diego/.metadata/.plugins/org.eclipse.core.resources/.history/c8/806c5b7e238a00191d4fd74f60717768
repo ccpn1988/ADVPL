@@ -1,0 +1,19 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function xSa2ExecView()
+	/*EXECUTAR INICIALIZAÇÂO PADRAO*/
+	//rpcSetEnv("99","01")
+
+	oModel:=FwLoadModel('MATA020')
+	oModel:setOperation(3)
+	oModel:Activate()
+	
+	oField:oModelGetModel("MATA020_SA2")
+	oField:setValue("A2_COD","XXXX")
+	oField:setValue("A2_LOJA","01")
+	oField:setValue("A2_NOME","DIEGO")
+	
+	FWExecView('Inclusao por FWExecView','MATA020M', MODEL_OPERATION_INSERT, , { || .T. })
+
+Return (NIL)

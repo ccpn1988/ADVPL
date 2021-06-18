@@ -1,0 +1,29 @@
+/////////////////////////////////////////////////////////////////////
+// Cria vetor aHeader.                                             //
+/////////////////////////////////////////////////////////////////////
+
+dbSelectArea("SX3")
+dbSetOrder(1)
+dbSeek(cAlias)
+
+While !SX3->(EOF()) .And. SX3->X3_Arquivo == cAlias
+
+   If X3Uso(SX3->X3_Usado)    .And.;                  // O Campo é usado.
+      cNivel >= SX3->X3_Nivel                   // Nivel do Usuario é maior que o Nivel do Campo.
+     
+      AAdd(aHeader, {Trim(SX3->X3_Titulo),;
+                     SX3->X3_Campo       ,;
+                     SX3->X3_Picture     ,;
+                     SX3->X3_Tamanho     ,;
+                     SX3->X3_Decimal     ,;
+                     SX3->X3_Valid       ,;
+                     SX3->X3_Usado       ,;
+                     SX3->X3_Tipo        ,;
+                     SX3->X3_Arquivo     ,;
+                     SX3->X3_Context})
+
+   EndIf
+
+   SX3->(dbSkip())
+
+Enddo

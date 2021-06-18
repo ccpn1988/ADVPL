@@ -1,0 +1,71 @@
+#Include 'Protheus.ch'
+#INCLUDE "APWEBSRV.CH"
+
+WsService xWsCliente Description "Informações dos Clientes"
+
+	WsMethod getTitulo Description "Titulo do Cliente"
+		WsData Cliente as String
+		WsData Loja as String
+		WsData Titulo as Array of StructTitulo //Array de Informações
+		
+	WsStruct StructTitulo
+ 		WsData E1_NUM as String
+		WsData E1_PARCELA as String
+		WsData E1_PREFIXO as String
+		WsData E1_TIPO as String
+		WsData E1_VENCREA as Date
+		WsData E1_VALOR as Float
+		WsData E1_SALDO as Float
+	EndWsStruct
+	
+WsMethod GetTitulo WsReceive Cliente, Loja WsSend Titulo WsService xWsCliente
+
+Local aDados := {} 
+Local cAlias := GetNextAlias()
+Local nCount := 1
+
+BeginSql Alias cAlias
+ 	column E1_VENCREA as Date
+ 	
+	Select E1_NUM,
+		   E1_PARCELA,
+	       E1_PREFIXO,
+	       E1_TIPO,
+	       E1_VENCREA,
+	       E1_VALOR,
+	       E1_SALDO
+	From %Table:SE1% SE1
+		Where E1_FILIAL = %xFILIAL:SE1%
+			AND E1_CLIENTE  = %EXP:Cliente%
+			AND E1_LOJA     = %EXP:Loja%
+			AND E1_SALDO   >  0
+			AND %notDel%
+EndSql 
+
+aSql := GetLastQuery() //  informações sobre a query executada.
+memowrite("C:\Material\Sql.txt", aSql[2])
+
+dbSelectArea(cAlias)
+(cAlias)->(dbGotop())
+
+if Empty((cAlias)->E1_NUM)
+	setSoapFault("Metodo não disponível","Dados Inválidos" )
+	Return .F.
+EndIf
+
+While!(cAlias)->(EOF()) 	
+	aAdd(Titulo,WSClassNew("StructTitulo"))
+		Titulo[nCont]:E1_NUM 	 := (cAlias)->E1_NUM
+		Titulo[nCont]:E1_PARCELA := (cAlias)->E1_PARCELA
+		Titulo[nCont]:E1_PREFIXO := (cAlias)->E1_PREFIXO
+		Titulo[nCont]:E1_TIPO 	 := (cAlias)->E1_TIPO
+		Titulo[nCont]:E1_VENCREA := (cAlias)->E1_VENCREA
+		Titulo[nCont]:E1_VALOR 	 := (cAlias)->E1_VALOR
+		Titulo[nCont]:E1_SALDO 	 := (cAlias)->E1_SALDO
+	nCount++
+	(cAlias)->(dbskip())
+ EndDo
+
+(cAlias)->(dbclosearea())
+
+Return .T.

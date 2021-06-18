@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="121" key="DIALOG_Y_ORIGIN"/>
+		<item value="444" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="com.totvs.tds.sdk.advpl.ui.TotvsAdvplNewFileWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.totvs.tds.project"/>
+			<item value="com.totvs.tds.sdk.tools"/>
+		</list>
+	</section>
+	<section name="ShowViewDialog">
+		<item value="318" key="DIALOG_WIDTH"/>
+		<item value="com.totvs.tds.core.server.ui.TotvsServerMonitor" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="80" key="DIALOG_Y_ORIGIN"/>
+		<item value="531" key="DIALOG_X_ORIGIN"/>
+		<item value="439" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="com.totvs.tds.Debug"/>
+			<item value="com.totvs.tds.core.server.ui"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+	</section>
+</section>

@@ -1,0 +1,12 @@
+#Include 'Protheus.ch'
+
+WsService xWsDataAtual Description "Data Atual"
+
+	WsMethod GetHorario Description "Retorna o Horário Atual do Servidor"
+		WsData cRetTime as String
+		WsData cEnvio	as String
+	/*WsMethod - Nome do Metodo Existente*/
+	/*WSReceive - Variavel que recebera o retorno*/
+	WsMethod GetHorario WsReceive cEnvio WsSend cRetTime WsService xWsDataAtual
+		self:cRetTime := Time()
+Return .T.

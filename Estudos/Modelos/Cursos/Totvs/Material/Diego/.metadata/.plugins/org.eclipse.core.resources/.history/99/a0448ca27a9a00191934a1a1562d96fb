@@ -1,0 +1,12 @@
+#Include 'Protheus.ch'
+
+User Function DolarDoDia()
+
+/*INSTANCIANDO UM OBEJTO RM ADVPL*/
+Local oWs := WSFachadaWSSGSService():New()
+oWs:getUltimoValorXML(1)
+MsgInfo(oWs:cgetUltimoValorXMLReturn)
+
+
+Return
+

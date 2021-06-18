@@ -1,0 +1,15 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function xSa2ExecView()
+	/*EXECUTAR INICIALIZAÇÂO PADRAO*/
+	//rpcSetEnv("99","01")
+	oModel:=FwLoadModel('MATA020')
+	
+	DbSelectArea('SA2')
+	dbgoto(5)
+	
+	/*CARREGA O MODELO MANIPULANDO O DADO*/
+	FWExecView('Inclusao por FWExecView','MATA020M', 4 , , { || .T. })
+
+Return (NIL)

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move 1 resources to &apos;MVC&apos;" description="Move 1 resources to &apos;MVC&apos;" destination="MVC" element1="Modelo3/MVC01.prw" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1557602218407" updateReferences="true"/>&#x0A;<refactoring comment="Renomear recurso &quot;Formacao/MVC/MVC 02.prw&quot; a &quot;MVC02.prw&quot;" description="Renomear recurso &quot;MVC 02.prw&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MVC/MVC 02.prw" name="MVC02.prw" stamp="1557605553370" updateReferences="true"/>
+</session>

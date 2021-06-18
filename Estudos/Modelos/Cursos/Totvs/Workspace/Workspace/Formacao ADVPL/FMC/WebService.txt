@@ -1,0 +1,6 @@
+WEBSERVICE
+
+http://tdn.totvs.com/display/tec/XmlParser
+
+SIGAMDI = SRVWIZARD
+Software = SoapUI

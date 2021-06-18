@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renomear recurso &quot;PRODUCAO/new_advpl_function.prw&quot; a &quot;XCADO02.prw&quot;" description="Renomear recurso &quot;new_advpl_function.prw&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="new_advpl_function.prw" name="XCADO02.prw" stamp="1556387041302" updateReferences="true"/>
+</session>

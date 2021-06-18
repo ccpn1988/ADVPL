@@ -1,0 +1,10 @@
+#Include 'Protheus.ch'
+#Include 'FWMVCDef.ch'
+
+User Function ConCEP()
+Local cURL := "http://cep.republicavirtual.com.br/web_cep.php?cep=91010000&formato=xml"
+Local cHTML := HTTPGET(cUrl) //Permite emular um client HTTP
+
+MsgInfo ("cHTML")
+Return 
+

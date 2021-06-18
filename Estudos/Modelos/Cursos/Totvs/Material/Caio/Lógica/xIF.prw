@@ -1,0 +1,17 @@
+#Include 'Protheus.ch'
+
+User Function xIF()
+local dMES := MONTH(Date())//RETORNA MES DAY(DIA)YEAR(ANO)
+
+IF dMES <= 3
+	MSGINFO("1° TRIMESTRE")
+ELSEIF dMES <=6
+	MSGINFO("2° TRIMESTRE")
+ELSEIF dMES <=9
+	MSGINFO("3° TRIMESTRE")
+ELSEIF dMES <=12
+	MSGINFO("4° TRIMESTRE")
+ENDIF
+
+Return(NIL)
+

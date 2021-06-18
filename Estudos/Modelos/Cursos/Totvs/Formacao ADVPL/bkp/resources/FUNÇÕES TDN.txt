@@ -1,0 +1,45 @@
+MSDIALOG		http://tdn.totvs.com/pages/viewpage.action?pageId=24346988
+SAY				http://tdn.totvs.com/pages/viewpage.action?pageId=24347069
+MSGET			http://tdn.totvs.com/pages/viewpage.action?pageId=24346994
+SBUTTON			http://tdn.totvs.com/display/tec/SButton
+BUTTON			http://tdn.totvs.com/pages/viewpage.action?pageId=23889154
+INCLUDE			http://tdn.totvs.com/display/framework/%23include
+EXISTCPO		http://tdn.totvs.com/pages/viewpage.action?pageId=24346640
+POSICIONE		http://tdn.totvs.com/pages/viewpage.action?pageId=25165872
+MSGINFO			http://tdn.totvs.com/display/tec/MsgInfo
+GETMV			http://tdn.totvs.com/pages/viewpage.action?pageId=24346929
+MBROWSE			http://tdn.totvs.com/pages/viewpage.action?pageId=24346981
+GETSCREENRES 	http://tdn.totvs.com/display/tec/GetScreenRes
+BRWLEGENDA		http://tdn.totvs.com/display/public/PROT/BrwLegenda
+ENCHOICE		http://tdn.totvs.com/pages/releaseview.action?pageId=6814972
+FWDEFSIZE		http://tdn.totvs.com/display/framework/FWDefSize
+ENCHOICEBAR		http://tdn.totvs.com/pages/releaseview.action?pageId=6814974
+OBRIGATORIO		http://tdn.totvs.com/pages/releaseview.action?pageId=6815101
+FIELDPUT
+FIELDGET
+FIELDNAME
+FIELDPOS
+
+FWFormStruct = 1 MODELO DE DADOS/ 2 VIEW
+
+
+
+
+//oFld:aDialogs[1] -> Impressão na aba 1
+colsizes defino o tamanho das colunas
+CHANGEQUERY -> Compatibiliza a query escrita de acordo com o Collate utilizado
+Local cAliasFor := GetNextAlias()  utilizado para abrir area temporaria de forma randomica
+
+
+"","","  /  /  ","","",0,0,""
+Filial,Codigo,Data,Nome,CodProduto,Quantidade,Valor,Ativo
+Z0_FILIAL
+Z0_COD
+Z0_DATA
+Z0_NOME
+Z0_PROD
+Z0_QTD
+Z0_VALOR
+Z0_ATIVO
+Z0_OBS,D_E_L_E_T_,R_E_C_N_O_,R_E_C_D_E_L_
+01	20190330	MARCUS VINICIUS               	1111004        	1	1	S	NULL	 	1	0	000001

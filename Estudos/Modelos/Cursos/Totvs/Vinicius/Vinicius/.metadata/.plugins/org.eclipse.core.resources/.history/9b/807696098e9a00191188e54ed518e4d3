@@ -1,0 +1,24 @@
+#Include 'Protheus.ch'
+#include 'APWEBSRV.ch'
+
+WsService xWsHorarioDF Description "Horario de Brasilia"
+
+WsMethod GetHora Description "Retornar o horario de Brasilia"
+	WsData cRetTime as String
+	WsData X as String
+	
+WsMethod GetData Description "Retornar o Data de Brasilia"
+	WsData cRetData as Date
+	
+WsMethod GetHora WsReceive x WsSend cRetTime WsService  xWsHorarioDF
+
+	
+	Self:cRetTime := Time()
+	
+Return .T.
+
+WsMethod GetData WsReceive x WsSend cRetData WsService  xWsHorarioDF
+
+Self:cRetTime := Date()
+
+Return .T.

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renomear recurso &quot;PRODUCAO/Escobo.prw&quot; a &quot;Escopo.prw&quot;" description="Renomear recurso &quot;Escobo.prw&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Escobo.prw" name="Escopo.prw" stamp="1554552810786" updateReferences="true"/>
+</session>

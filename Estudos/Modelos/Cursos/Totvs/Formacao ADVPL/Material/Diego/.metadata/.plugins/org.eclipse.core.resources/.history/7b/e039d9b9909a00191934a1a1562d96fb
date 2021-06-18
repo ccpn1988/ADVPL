@@ -1,0 +1,14 @@
+#Include 'Protheus.ch'
+
+User Function xCliWs()
+	Local oWs := WSXWSDATAATUAL():new()
+	
+	If oWs:GETDATAATUAL('123')
+		MsInfo(oWs:dGETDATAATUALRESULT)
+	Endif
+	
+	If oWs:GETHORARIO()
+		MsInfo(oWs:cGETHORARIORESULT)
+	Endif	
+Return
+

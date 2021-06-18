@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move 1 resources to &apos;Formacao&apos;" description="Move 1 resources to &apos;Formacao&apos;" destination="/Formacao" element1="Modelo1/Relatórios" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1560616540010" updateReferences="true"/>&#x0A;<refactoring comment="Renomear recurso &quot;Formacao/tReport/REL_tReport_BeginQuery.prw&quot; a &quot;XREL_tReport_BeginQuery.prw&quot;" description="Renomear recurso &quot;REL_tReport_BeginQuery.prw&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="tReport/REL_tReport_BeginQuery.prw" name="XREL_tReport_BeginQuery.prw" stamp="1560626727683" updateReferences="true"/>
+</session>

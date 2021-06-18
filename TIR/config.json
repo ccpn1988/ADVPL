@@ -1,0 +1,10 @@
+{
+    "Url": "http://localhost:8085",
+    "Browser": "CHROME",
+    "Environment": "12.1.25",
+    "Language": "pt-br",
+    "User": "ADMIN",
+    "Password": "1234",
+    "Headless": false
+
+}

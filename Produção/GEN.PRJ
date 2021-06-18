@@ -1,0 +1,1186 @@
+Group GEN-PRODUCAO
+   Version=7.0
+   VSSDB=
+   HasProperties=1
+   Properties
+      BeforeApply=
+      AfterApply=
+      Icon=
+      ID=
+      Version=
+      PalmName=
+      OutPut=
+   End
+   ProjectsCount=13
+   Project Contabilidade
+      FoldersCount=2
+      Folder Atualizacoes
+         VSSPath=Definições
+         FilesCount=4
+         File \Projetos\TOTVS\Fontes\Contabilidade\Atualizacoes\GENCT5.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Contabilidade\Atualizacoes\GENMC001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Contabilidade\Atualizacoes\GENA072.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Contabilidade\Atualizacoes\GENCT5ALT.prw
+             Type=T
+         End
+      End
+      Folder Validacoes
+         VSSPath=Nova Pasta3
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Contabilidade\Validacoes\GENV001.prw
+             Type=T
+         End
+      End
+   End
+   Project Financeiro
+      FoldersCount=6
+      Folder Atualizacoes
+         VSSPath=Nova Pasta1
+         FilesCount=10
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA001.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA002.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA004.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\BLOQFIN.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA045.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA048.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA060.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Atualizacoes\GENA073.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Atualizacoes\GENA074.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Atualizacoes\GENA075.PRW
+             Type=T
+         End
+      End
+      Folder Pontos de Entrada
+         VSSPath=Nova Pasta2
+         FilesCount=29
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA050ALT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA040INC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F240FIL.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\SACI008.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\MA020TOK.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA050INC.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F420ICNB.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F050BUT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F050CV4.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F200FIM.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\MALTCLI.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\M030INC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\MA030TOK.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA060QRY.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F440aBas.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F376BRW.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F376PROJ.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA240PA.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F378PROJ.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA200SEB.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA378FLT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA070CA2.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F401QRY2.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F401QRY3.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\F401Qry5.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\FA401QRY.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\PE\M461DUPCR.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\PE\F241BOR.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\PE\FA740BRW.PRW
+             Type=T
+         End
+      End
+      Folder Validacoes
+         VSSPath=Nova Pasta3
+         FilesCount=3
+         File \Projetos\TOTVS\Fontes\Financeiro\Validacoes\VALCODBAR.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Validacoes\GENV003.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Validacoes\CONVLD.PRW
+             Type=T
+         End
+      End
+      Folder Relatórios
+         VSSPath=Nova Pasta4
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Relatorios\Boletos\ITAU.PRW
+             Type=T
+         End
+      End
+      Folder Schedule
+         VSSPath=Nova Pasta5
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Financeiro\Schedule\AtuMoeda.prw
+             Type=T
+         End
+      End
+      Folder Miscelanea
+         VSSPath=Nova Pasta6
+         FilesCount=8
+         File \Projetos\TOTVS\Fontes\Financeiro\Miscelanea\GENMF003.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Miscelanea\GENMF002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Miscelanea\GENMF004.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Atualizacoes\GENA085.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Miscelanea\GENA086.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Miscelanea\GENA087.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Miscelanea\GENA088.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Miscelanea\GENA091.prw
+             Type=T
+         End
+      End
+   End
+   Project Compras
+      FoldersCount=4
+      Folder Validacoes
+         VSSPath=Nova Pasta1
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Compras\GENV006.prw
+             Type=T
+         End
+      End
+      Folder Relatorios
+         VSSPath=Nova Pasta2
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Compras\Relatorios\GENR401.prw
+             Type=T
+         End
+      End
+      Folder Especificos
+         VSSPath=Nova Pasta3
+         FilesCount=11
+         File \Projetos\TOTVS\Fontes\Compras\GENA021.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\GENA022.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\GENA023.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\GENA024.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\A140EXC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\MT103EXC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\GENA033.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\MA103BUT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Compras\GENA025.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Compras\GENA080.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Compras\GENA089.prw
+             Type=T
+         End
+      End
+      Folder PE
+         VSSPath=Nova Pasta4
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Compras\PE\MT100TOK.prw
+             Type=T
+         End
+      End
+   End
+   Project Cargas
+      FoldersCount=1
+      Folder Fontes
+         VSSPath=Nova Pasta1
+         FilesCount=23
+         File \Projetos\TOTVS\Fontes\Cargas\GENI002.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI007.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI008.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI010.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI014.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI015.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI016.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI017.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI018.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI020.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI021.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI021C.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI022.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI018F.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI023.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENA064.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI026.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI027.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI028.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Cargas\GENI040.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Cargas\GENI030.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Cargas\GENI050.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Cargas\GENA082.PRW
+             Type=T
+         End
+      End
+   End
+   Project RH
+      FoldersCount=4
+      Folder Validações
+         VSSPath=Nova Pasta1
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\RH\Folcc.prx
+             Type=T
+         End
+      End
+      Folder Fontes
+         VSSPath=Nova Pasta2
+         FilesCount=4
+         File \Projetos\TOTVS\Fontes\RH\RCAUTO.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\MMSGRH.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\IMPIRPF.PRX
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\IMPRESH.prw
+             Type=T
+         End
+      End
+      Folder DIRF
+         VSSPath=Nova Pasta3
+         FilesCount=4
+         File \Projetos\TOTVS\Fontes\RH\DIRF\GGDIRFPF.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\DIRF\GGDIRFPJ.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\DIRF\GGDIRPJb.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\RH\DIRF\IMPDIRF.PRW
+             Type=T
+         End
+      End
+      Folder Ponto de entrada
+         VSSPath=Nova Pasta4
+         FilesCount=2
+         File \Projetos\TOTVS\Fontes\RH\GP670ARR.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\RH\GPE10MENU.PRW
+             Type=T
+         End
+      End
+   End
+   Project Teste
+      FoldersCount=2
+      Folder Helimar
+         VSSPath=Nova Pasta1
+         FilesCount=5
+         File \Projetos\TOTVS\Fontes\Teste\GENR001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Teste\GEN002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Teste\GENTMP2.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Teste\GENTMP3.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Teste\GENTMP4.prw
+             Type=T
+         End
+      End
+      Folder Danilo
+         VSSPath=Nova Pasta2
+         FilesCount=0
+      End
+   End
+   Project Generico
+      FoldersCount=2
+      Folder Funcoes
+         VSSPath=Nova Pasta1
+         FilesCount=11
+         File \Projetos\TOTVS\Fontes\Generico\GenMsg.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\LibCad.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\SQLTOCSV.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\LIBCLI.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\UPDTABP.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\Excli.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\TMP001.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\TMP004.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\TMP003.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\gensendmail.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\ZeraAdmin.prw
+             Type=T
+         End
+      End
+      Folder PE
+         VSSPath=Nova Pasta2
+         FilesCount=3
+         File \Projetos\TOTVS\Fontes\Generico\PE\MA020ROT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\PE\MA030ROT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Generico\PE\A010TOK.prw
+             Type=T
+         End
+      End
+   End
+   Project Faturamento
+      FoldersCount=5
+      Folder NFE
+         VSSPath=Nova Pasta1
+         FilesCount=3
+         File \Projetos\TOTVS\Fontes\Faturamento\NFE\danfeiii.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFE\nfesefaz.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFE\PE01NFESEFAZ.prw
+             Type=T
+         End
+      End
+      Folder PE
+         VSSPath=Nova Pasta2
+         FilesCount=35
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA410VLD.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M460NUM.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FT210MNU.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410STTS.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MTA410.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410LIOK.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FISFILNFE.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MS520VLD.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\A410Cons.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\SF2460I.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FIRSTNFSE.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA410COR.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA410LEG.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FT210BRW.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FT210COR.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FT210LEG.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410GET.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410VIS.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MT410CPY.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MT410TOK.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M450CMAN.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M450BRW.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410TIP9.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M460FIM.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FC010LIST.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA416MNU.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M415GRV.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\FT080RDES.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MTA416PV.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA415BUT.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M020INC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\PE\FT210OPC.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\PE\MA410MNU.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\PE\MT410ACE.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\PE\MAAVCRPR.prw
+             Type=T
+         End
+      End
+      Folder Carga
+         VSSPath=Nova Pasta3
+         FilesCount=1
+         File \Projetos\TOTVS\Fontes\Faturamento\ImpXML.prw
+             Type=T
+         End
+      End
+      Folder NFSE
+         VSSPath=Nova Pasta4
+         FilesCount=5
+         File \Projetos\TOTVS\Fontes\Faturamento\NFSE\NFSEXml001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFSE\NFSEXml002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFSE\NFSEXml003.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFSE\NFSEXml102.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\NFSE\nfsexmlenv.prw
+             Type=T
+         End
+      End
+      Folder Especificos
+         VSSPath=Nova Pasta5
+         FilesCount=59
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA005.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA006.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA007.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA008.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA009.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA0010.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA011.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA012.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG001.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG002.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG003.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG004.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG005.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENG006.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENV002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\CHGX5FIL.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GRAVARQ.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA013.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\MA103OPC.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\MT103FIM.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA014.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA015.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA016.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA017.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\AjuSC6.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENV005.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA020.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GenNFE.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA019.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA019C.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA019D.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA028.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Financeiro\Atualizacoes\GENA031.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA040.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA041.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA046.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA047.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENV007.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA049.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA050.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA062.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA058.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA056.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA057.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA061.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENI024.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA063.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\_EnvEmail.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA066.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA067.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENA069.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENI032.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENI033.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENI034.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Financeiro\Atualizacoes\GENA074.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENA076.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENA077.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENA078.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Faturamento\Especificos\GENA084.PRW
+             Type=T
+         End
+      End
+   End
+   Project Configurador
+      FoldersCount=2
+      Folder Fontes
+         VSSPath=Nova Pasta1
+         FilesCount=4
+         File \Projetos\TOTVS\Fontes\Configurador\GENRCFG1.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Configurador\GENRCFG2.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Configurador\Utilitarios\RefrSX2.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Configurador\GENJOB01.prw
+             Type=T
+         End
+      End
+      Folder Utilitarios
+         VSSPath=Nova Pasta2
+         FilesCount=2
+         File \Projetos\TOTVS\Fontes\Configurador\Utilitarios\Emerg.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Configurador\Utilitarios\UPDGEN1.PRW
+             Type=T
+         End
+      End
+   End
+   Project Relatorios
+      FoldersCount=3
+      Folder Faturamento
+         VSSPath=Nova Pasta1
+         FilesCount=52
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT003.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\Especificos\GENC001A.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT004.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT005.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT006.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT007.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT008.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT009.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT010.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT011.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER058.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GMAT170.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER052.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT012.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\ORC001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER059.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER060.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER051.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER056.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER061.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT014.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FEC030.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FEC080.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GENR062.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER023.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER044.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER042.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER048.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER010A.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER010B.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER062.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER003A.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GENR064.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER003A.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER039A.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT013.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER005A.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER006A.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER063.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER018.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER064.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER065.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER067.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER066.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT016.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\FAT015.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Relatorios\FAT014A.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Relatorios\GENR068.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Relatorios\GENR069.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Relatorios\GER035.prw
+             Type=T
+         End
+      End
+      Folder Estoque
+         VSSPath=Nova Pasta2
+         FilesCount=20
+         File \Projetos\TOTVS\Fontes\Relatorios\EST001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\PGER024.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER017.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER024.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER036.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GER017a.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST012.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST036.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST037.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST003.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST038.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GENR063.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST039.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GENR065.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST004.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST005.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST041.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST040.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\EST042.prw
+             Type=T
+         End
+      End
+      Folder Financeiro
+         VSSPath=Nova Pasta3
+         FilesCount=3
+         File \Projetos\TOTVS\Fontes\Relatorios\FIN001.PRW
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Relatorios\GENR067.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\fontes\Relatorios\RFINR01.prw
+             Type=T
+         End
+      End
+   End
+   Project Estoque
+      FoldersCount=1
+      Folder Especificos
+         VSSPath=Nova Pasta1
+         FilesCount=5
+         File \Projetos\TOTVS\Fontes\Estoque\GENA030.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Estoque\GENA032.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Estoque\GENA043.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Estoque\GENA044.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Estoque\GENA052.prw
+             Type=T
+         End
+      End
+   End
+   Project WMS
+      FoldersCount=4
+      Folder LIB
+         VSSPath=Nova Pasta1
+         FilesCount=2
+         File \Projetos\TOTVS\Fontes\WMS\LIB\JSON.prg
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\LIB\SHash.prg
+             Type=T
+         End
+      End
+      Folder WS
+         VSSPath=Nova Pasta2
+         FilesCount=3
+         File \Projetos\TOTVS\Fontes\WMS\wsFATGEN.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\wsFATGEN_CLIENTE.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\WSRomaneiosService.prw
+             Type=T
+         End
+      End
+      Folder FONTES
+         VSSPath=Nova Pasta3
+         FilesCount=5
+         File \Projetos\TOTVS\Fontes\WMS\GENA051.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\JFWMS001.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\JFWMS002.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\JFWMS003.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\WMS\PIXXFUN.PRW
+             Type=T
+         End
+      End
+      Folder PE
+         VSSPath=Nova Pasta4
+         FilesCount=4
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M460MKB.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M410PVNF.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\M460FIL.prw
+             Type=T
+         End
+         File \Projetos\TOTVS\Fontes\Faturamento\PE\MA440MNU.prw
+             Type=T
+         End
+      End
+   End
+   Project Fiscal
+      FoldersCount=1
+      Folder PE
+         VSSPath=Nova Pasta1
+         FilesCount=1
+         File \Projetos\TOTVS\fontes\Fiscal\PE\SPED0150.PRW
+             Type=T
+         End
+      End
+   End
+End

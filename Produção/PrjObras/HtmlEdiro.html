@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="pr-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Edição HTML Protheus</title>
+        <script src="totvstec.js"></script>
+        <script src="https://clevert.com.br/lib/ckeditor/ckeditor.js"></script>
+	    <script>
+	        onload = function () { loadEngine(); }
+	 
+	        function loadEngine() {
+	            // Conecta WebSocket Server
+	            totvstec.connectWS( function(){
+	                // Carrega mensageria exclusiva da pagina
+	                dialog.advplToJs.connect(function (codeType, codeContent) {
+	                    if (codeType == "html") {
+	                        //var page = document.getElementById("main");
+	                        //page.innerHTML += codeContent;
+	                        //alert(codeContent);
+	                        //document.getElementById("ckeditor").value = codeContent;
+	                    }
+	                });
+	 
+	                // Envia sinal informando termino da carga da pagina
+	                //dialog.jsToAdvpl("page_started", "Pagina inicializada");
+	            });           
+	        }
+	 
+	        function getDate(){
+	            var today = new Date();
+	            var dd = today.getDate();
+	            var mm = today.getMonth()+1; //January is 0!
+	            var yyyy = today.getFullYear();
+	            return mm+'/'+dd+'/'+yyyy;
+	        }
+	         
+	        function runAdvplSuccess(retStr){
+	            alert("CallBack da função runADVPL: " + retStr);
+	        }
+	    </script>		
+    </head>
+
+    <body>        
+        <section>                
+			<div class="contentpanel">
+				<div class="panel panel-default">
+					<div class="panel-body">
+					 <!--  <form data-sample="1" action="https://d1.ckeditor.com/savetextarea/savetextarea.php" method="post" data-sample-short=""> !-->
+					 
+					  <textarea id="ckeditor" name="ckeditor" placeholder="Enter text here..." class="form-control" rows="10">
+					  </textarea>
+					<script>
+							// Replace the <textarea id="editor1"> with a CKEditor
+							// instance, using default configuration.
+							CKEDITOR.replace( 'ckeditor' );
+					</script>						  
+					  <p>
+					
+					</div>
+				</div><!-- panel -->
+			
+			</div><!-- contentpanel -->
+        </section>
+
+        <script src="custom.js"></script>
+
+    </body>
+</html>

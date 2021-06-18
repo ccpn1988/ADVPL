@@ -1,0 +1,279 @@
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\rwmake.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\stdwin.ch"
+#line 14 "rwmake.ch"
+#line 2 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\CONTAB~1\ATUALI~1\geni016.prw"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Dialog.ch"
+#line 27 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Font.ch"
+#line 28 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PTMenu.ch"
+#line 30 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Print.ch"
+#line 32 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Colors.ch"
+#line 34 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Folder.ch"
+#line 36 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\msobject.ch"
+#line 37 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\VKey.ch"
+#line 41 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\WinApi.ch"
+#line 43 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCommand.ch"
+#line 46 "PROTHEUS.ch"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCSS.CH"
+#line 48 "PROTHEUS.ch"
+#line 3 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\CONTAB~1\ATUALI~1\geni016.prw"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\TBICONN.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Ap5Mail.ch"
+#line 10 "TBICONN.CH"
+#line 4 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\CONTAB~1\ATUALI~1\geni016.prw"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\TopConn.ch"
+#line 24 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\CONTAB~1\ATUALI~1\geni016.prw"
+Function U_GENI016
+
+
+
+
+
+
+Private oLeTxt
+Private cString := "SB1"
+Private cArqTxt := ""
+
+dbSelectArea("SB1")
+dbSetOrder(1)
+
+
+
+
+
+oLeArq = MsDialog():New( 000, 000, 150, 380, "Importação de Produtos",,,.F.,,,,,,.T.,, ,.F. )
+ TGroup():New( 000, 003, 075, 190,,,,,.T., )
+ TSay():New( 010, 018,{||  " Este programa ira ler o conteudo da tabela de Produtos através "},,,,.F.,.F.,.F.,.T.,,,,,.F.,.F.,.F.,.F.,.F.,.F. )
+ TSay():New( 018, 018,{||  " de View, e importá-los para a tabela CTH (CLASSE DE VALOR).           "},,,,.F.,.F.,.F.,.T.,,,,,.F.,.F.,.F.,.F.,.F.,.F. )
+
+
+oTButton1 := TButton():Create( oLeArq,055,095,"Ok",{||Processa({|| RunCont() },"Processando..."),oLeArq:End()}, 036,012,,,, .T. ,,,,,,)
+
+oTButton2 := TButton():Create( oLeArq,055,135,"Cancelar",{||oLeArq:End()}, 036,012,,,, .T. ,,,,,,)
+
+oLeArq:Activate( oLeArq:bLClicked, oLeArq:bMoved, oLeArq:bPainted,.T.,,,, oLeArq:bRClicked, )
+
+
+Return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function OkLeArq
+
+
+
+
+
+
+
+Processa({|| RunCont() },"Processando...")
+Return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function RunCont
+
+Local lErro   := .F. 
+Local nItens  := 0
+Local cFilBkp := cFilant
+Local cPath   := "\LogSiga\classe\"
+Local cFile   := ""
+Local cQuery
+Local cQueryINS
+Local nTotReg := 0
+Local cGrupo:= ""
+
+
+Private lMSHelpAuto := .F. 
+Private lMSErroAuto := .f. 
+Private cAliasQry := GetNextAlias()
+Private nTotReg 	:= 0
+
+cQuery := "SELECT * FROM TT_I03_PRODUTO@TOTVS_LINK tt "
+
+
+DbUseArea( .T. , "TOPCONN", TCGenQry(,,cQuery), cAliasQry, .F. , .T. )
+
+nTotReg := 0; DBEval( {|| nTotReg := nTotReg + 1},,,,,.F. )
+
+dbSelectArea(cAliasQry)
+dbGoTop()
+
+ProcRegua(nTotReg)
+
+nItens:= 0
+While !(cAliasQry)->(Eof())
+
+	nItens++
+
+
+
+
+
+	IncProc("Importando Classe de valor...  Linha "+cValtoChar(nItens))
+
+
+
+
+
+
+
+
+
+
+
+
+cCodObra:=StrZero((cAliasQry)->B1_COD,9)
+cCodProd:= (cAliasQry)->B1_COD
+cDesc:=(cAliasQry)->B1_DESC
+
+
+
+  	DbSelectArea("CTH")
+	DbSetOrder(1)
+
+
+
+
+		aRotAuto := {{"CTH_CLVL" , cCodObra						, Nil}, {"CTH_CLASSE", "2"					, Nil}, {"CTH_DESC01", Alltrim(Upper(cDesc))	    , Nil}}
+
+  	DbSelectArea("CTH")
+	DbSetOrder(1)
+    MSExecAuto({|x, y| CTBA060(x, y)},aRotAuto, 3)
+		If lMSErroAuto
+
+
+			lErro := .T. 
+			cHora:= StrTran(Time(),":")
+
+			cHora:= SubStr(cHora,1,2)+"h"+SubStr(cHora,3,2)+"m"+SubStr(cHora,5,2)+"s"
+			cFile := Dtos(dDataBase) + "-" + cHora + " - Cod "+Alltrim(cCodObra)+".log"
+
+			MostraErro(cpath, cfile)
+
+
+			DisarmTransaction()
+			lMsErroAuto := .F. 
+
+		EndIf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	DbSelectARea(cAliasQry)
+	DbSkip()
+EndDo
+
+DbSelectarea(cAliasQry)
+DbcloseArea()
+
+
+If !lErro
+	Aviso("Aviso","Importação Finalizada com Sucesso!", {"Ok"} )
+else
+    Aviso("Aviso","Importação finalizada, mas ocorreram algumas inconsistências, verifique a pasta LogSiga", {"Ok"} )
+endif
+
+Return

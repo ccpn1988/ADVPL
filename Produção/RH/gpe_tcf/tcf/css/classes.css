@@ -1,0 +1,37 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@media screen{
+	
+}
+
+
+/* ___________  POSICIONAMENTO DE OBJETOS ( BOX MODEL ) e alinhamento   _____________________
+______________________________________________________________________
+___________________________________________________________ */
+	
+.posicao_1{
+	float:left;
+	}
+	
+.posicao_2{
+	float:right;
+	}
+	
+.limpa_float{
+	clear:both;
+	}
+	
+/* ___________  BOTÃO AQUA ______ */
+
+
+.btn_cinza span{
+	background: url(../imagens/commons/btn_grey_bg_cinza.gif) no-repeat 0 0;
+	}	
+
+.btn_cinza em{
+	background: url(../imagens/commons/btn_grey_bg_cinza.gif) no-repeat 100% 0;
+	}
+	
+/* ___________ tabelas ______ */
+

@@ -1,0 +1,127 @@
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Dialog.ch"
+#line 28 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Font.ch"
+#line 29 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PTMenu.ch"
+#line 31 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Print.ch"
+#line 33 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Colors.ch"
+#line 35 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Folder.ch"
+#line 37 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\msobject.ch"
+#line 38 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\VKey.ch"
+#line 42 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\WinApi.ch"
+#line 44 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCommand.ch"
+#line 47 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCSS.CH"
+#line 50 "PROTHEUS.CH"
+#line 32 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\rh\gpe_tcf\mdjlib23.prg"
+Function U_MDJLIB23Exec(cExecIn,aFormParam)
+
+Local uRet
+
+cExecIn := If( cExecIn == nil, "", cExecIn ) ;
+aFormParam := If( aFormParam == nil, {}, aFormParam ) ;
+
+IF !Empty( cExecIn )
+	cExecIn	:= BldcExecInFun( cExecIn , aFormParam )
+	uRet	:= &( cExecIn )
+EndIF
+
+Return( uRet )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function GetNewKey()
+
+Local aEmpFil
+Local aFields
+
+Local bGetKey
+
+Local cRdd			:= "TOPCONN"
+Local cData			:= "keyid"
+Local cAlias    	:= "__KEY_ID__"
+
+Local cIndex
+Local cQuery
+Local cAliasQuery
+Local cNextKey
+Local cPrepareIn
+
+Local nKeySize
+
+Begin Sequence
+
+	nKeySize	:= 15
+
+	IF ( Select( cAlias ) == 0 )
+
+		cIndex	:= ( cData + "1" )
+
+		IF !( MsFile( cData ) )
+			aFields	:= { { "ID" , "C" , nKeySize , 0 } }
+			dbCreate( cData , @aFields , cRdd )
+		EndIF
+
+		dbUseArea( .T.  , cRdd , cData , cAlias , .T.  )
+
+		IF !( MsFile( cData , cIndex ) )
+			( cAlias )->( dbCreateIndex( cIndex , "ID" , { || ID } , IF( .F.  , .T.  , NIL ) ) )
+		EndIF
+
+		( cAlias )->( dbClearIndex() )
+		( cAlias )->( dbSetIndex( cIndex ) )
+
+	EndIF
+
+	cQuery 		:= "select max(ID) ID from " + cData
+	cQuery 		:= ChangeQuery( cQuery )
+
+	cAliasQuery	:= GetNextAlias()
+
+	dbUseArea( .T. ,"TOPCONN",TcGenQry( NIL , NIL , cQuery ) , cAliasQuery )
+
+	IF ( cAliasQuery )->( Eof() .or.  Bof() )
+		cNextKey	:= Replicate( "0" , nKeySize )
+	Else
+		cNextKey	:= ( cAliasQuery )->ID
+	EndIF
+	( cAliasQuery )->( dbCloseArea() )
+
+    PutFileInEof( cAlias )
+	bGetKey := { || cNextKey := GetNewCodigo( cAlias , "ID" , "ID" , { || cNextKey := Soma1( cNextKey ) } , .F.  , .F.  , "" , "" , cNextKey , .F.  ) }
+	While ( cAlias )->( dbSeek( Eval( bGetKey ) , .F.  ) )
+		PutFileInEof( cAlias )
+	end
+
+	IF ( cAlias )->( UsrRecLock( cAlias  , .T.  , .F.  ) )
+		( cAlias )->ID := cNextKey
+		( cAlias )->( MsUnLock() )
+	EndIF
+
+	FreeLocks( NIL , NIL , .T.  , NIL )
+
+end
+
+Return( cNextKey )

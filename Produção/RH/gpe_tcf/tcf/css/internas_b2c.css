@@ -1,0 +1,331 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@media screen{
+	
+}
+
+#wrap_b2c{
+	width:770px;
+	margin:0 auto;
+	background: #E6E8ED;
+	}
+	
+	
+	
+/*________ TOPO ________________________________________________
+____________________________________________________________
+______________________________________________________*/
+	
+#wrap_b2c #top{
+	width:770px;
+	padding:93px 0 0 0;
+	background: url(../imagens/b2c/top_b2c.jpg) no-repeat top center;
+	}
+	
+#wrap_b2c #top h1{
+	width:82px;
+	padding:16px 0 0 0;
+	overflow:hidden;
+	background: url(../imagens/b2c/ttl_rh_online.gif) no-repeat top center;
+	margin:0 auto;
+	height: 0;
+	}
+	
+	
+	
+/*________ PERFIL ________________________________________________
+____________________________________________________________
+______________________________________________________*/
+
+#perfil{
+	float:left;
+	width:210px;
+	color:#275E9B;
+	background:url(../imagens/b2c/bg2_body_perfil.gif) repeat-y bottom center;
+	margin:0 0 0 20px;
+	}
+	
+#perfil a{
+	color:#275E9B;
+	}
+	
+#identificacao{
+	background:url(../imagens/b2c/bg2_top_perfil.gif) no-repeat top center;
+	text-align:center;
+	padding:19px 0 10px 0;
+	border-bottom:1px solid #cdd4db;
+	}
+	
+#identificacao img{
+	border:1px solid #7F9DB9;
+	margin:0 0 6px 0;
+	width:64px;
+	height:89px;
+	}
+
+#identificacao p{
+	font-size:9px;
+	}
+
+#identificacao p span{
+	font-weight:bold;
+	font-size:11px;
+	}
+	
+#menu_global{
+	background:url(../imagens/b2c/bg2_foot_perfil.gif) no-repeat center bottom;
+	padding:32px 0 32px 16px;
+	list-style:none;
+	}
+	
+#menu_global li{
+	padding:10px 0 12px 0;
+	}
+	
+#menu_global li img{
+	margin:0 0 0 0;
+	}
+	
+ul#menu_global li ul{
+	padding:4px 0 0 8px;
+	list-style:none;
+	}
+	
+ul#menu_global li ul li{
+	line-height:18px;
+	display:block;
+	padding:0;
+	}
+	
+ul#menu_global li ul li a{
+	line-height:18px;
+	height:18px;
+	display:block;
+	background:url(../imagens/b2c/blt_menu_global.gif) no-repeat left center;
+	padding: 0 0 0 6px;
+	}
+	
+	
+/*________ MENU AÇÕES (IMPRIMIR e SAIR) _________________________
+____________________________________________________________
+______________________________________________________*/
+
+#menu_acoes{
+	float:right;
+	margin:0 20px 0 0;
+	background:url(../imagens/b2c/bg_menu_acoes.gif) no-repeat left top;
+	padding:0 0 0 11px;
+	}
+	
+#menu_acoes li{
+	display:inline;
+	}
+	
+#menu_acoes li span{
+	background:url(../imagens/b2c/bg_menu_acoes.gif) no-repeat right top;
+	height:27px;
+	width: 11px;
+	font-size:1px;
+	float:left;
+	}
+	
+#menu_acoes li a, #menu_acoes li a img{
+	float:left;
+	}
+	
+#menu_acoes li a span{
+	background:url(../imagens/b2c/div_menu_acoes.gif) no-repeat center center;
+	height:27px;
+	width:18px;
+	font-size:1px;
+	float:left;
+	}
+	
+	
+	
+/*________ CONTEUDO ____________________________________________
+____________________________________________________________
+______________________________________________________*/
+
+#conteudo{
+	float:right;
+	width:446px;
+	border:1px solid #7F9DB9;
+	background:#fff;
+	padding:30px 25px 40px 25px;
+	margin:0 20px 0 0;
+	line-height:16px;
+	}
+	
+#conteudo h2, #conteudo h3{
+	margin:0 0 18px 0;
+	}
+	
+#conteudo h2{
+	padding:0 0 12px 2px;
+	background: url(../imagens/b2c/div_ttl.gif) repeat-x center bottom;
+	}
+	
+#conteudo p{
+	margin:0 0 18px 0;
+	text-align:justify;
+	}
+	
+#conteudo form#folha_pagamento{
+	padding:0 0 0 0;
+	}
+	
+#conteudo form#folha_pagamento label{
+	padding:0 8px 0 0;
+	font-weight:bold;
+	color:#275E9B;
+	}
+	
+#conteudo form#folha_pagamento label select{
+	margin:15px 0 0 0;
+	}
+	
+#conteudo form#alterar_senha{
+	}
+	
+#conteudo form#alterar_senha br{
+	clear:both;
+	}
+	
+#conteudo form#alterar_senha label{
+	padding:10px 6px 0 0;
+	font-weight:bold;
+	color:#275E9B;
+	display:block;
+	width:150px;
+	float:left;
+	text-align:right;
+	}
+	
+#conteudo form#alterar_senha select, #conteudo form#alterar_senha input{
+	margin:10px 0 0 0;
+	}
+	
+#conteudo form#alterar_senha button{
+	padding:0;
+	margin:-18px 30px 0 0;
+	float:right
+	}
+	
+#conteudo button span{
+	background: url(../imagens/commons/btn_red_bg_branco.gif) no-repeat 0 0;
+	}	
+#conteudo button em{
+	background: url(../imagens/commons/btn_red_bg_branco.gif) no-repeat 100% 0;
+	}
+	
+#conteudo .btn_cinza span{
+	background: url(../imagens/commons/btn_grey_bg_branco.gif) no-repeat 0 0;
+	}	
+#conteudo .btn_cinza em{
+	background: url(../imagens/commons/btn_grey_bg_branco.gif) no-repeat 100% 0;
+	}
+	
+#conteudo #display_tabela{
+	display:block;
+	color:#000;
+	}
+	
+#conteudo #display_tabela span{
+	float:left;
+	}
+	
+#conteudo #display_tabela span strong{
+	color:#00408C;
+	font-weight:bold;
+	}
+	
+#conteudo #display_tabela button#show, #conteudo #display_tabela button#hide{
+	float:right;
+	color:#00408C;
+	font-weight:bold;
+	}
+	
+#conteudo #display_tabela button#hide{
+	display:none;
+	}
+	
+/*________ FOLHA DE PAGAMENTO _______________________*/
+	
+table{
+	font-size:10px;
+	width:100%;
+	margin:0 -3% 0 -3%;
+	clear:both;
+	padding:0;
+	display:none;
+	}
+	
+table caption{
+	text-align:left;
+	padding:25px 0 6px 0;
+	}
+	
+table td, table th{
+	padding:2px;
+	}
+	
+table td strong, table th{
+	color: #004A8D;
+	font-weight:bold;
+	font-size:10px;
+	}
+	
+table thead td span{
+	border:1px solid #909090;
+	display:block;
+	font-size:10px;
+	padding:1px 4px 1px 4px;
+	white-space:nowrap;
+	}
+	
+table tbody td, table tbody th{
+	border-bottom:1px solid #909090;
+	font-size:10px;
+	padding:1px 4px 1px 4px;
+	white-space:nowrap;
+	}
+	
+table tfoot td span{
+	border:1px solid #004A8D;
+	padding:4px 0 4px 0;
+	text-align:center;
+	font-size:9px;
+	display:block;
+	width:100%;
+	}
+	
+table tfoot td.autenticacao{
+	padding:20px 0 0 0;
+	text-align:center;
+	border:none;
+	}
+	
+table tfoot td.autenticacao img{
+	width:480px;
+	}
+	
+tr.sem_borda td, tr.sem_borda th{
+	border:none;
+	padding-bottom:15px;
+	}
+	
+tr.sem_borda_vert th{
+	border:none;
+	padding:18px 4px 12px 4px;
+	}
+	
+/*________ RODAPÉ ____________________________________________
+____________________________________________________________
+______________________________________________________*/
+
+#wrap_b2c address{
+	padding:30px 0 0 0;
+	}
+

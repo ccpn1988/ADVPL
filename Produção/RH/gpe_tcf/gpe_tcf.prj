@@ -1,0 +1,85 @@
+Group gpe
+   Version=7.0
+   VSSDB=
+   HasProperties=1
+   Properties
+      BeforeApply=
+      AfterApply=
+      Icon=
+      ID=
+      Version=
+      PalmName=
+      OutPut=
+   End
+   ProjectsCount=1
+   Project tcf
+      FoldersCount=2
+      Folder Definições
+         VSSPath=Definições
+         FilesCount=1
+         File \gpe_tcf\recnew.ch
+             Type=T
+         End
+      End
+      Folder Fontes
+         VSSPath=Nova Pasta2
+         FilesCount=14
+         File \gpe_tcf\mdjlib22.prg
+             Type=T
+         End
+         File \gpe_tcf\mdjlib23.prg
+             Type=T
+         End
+         File \gpe_tcf\u_tcfdem.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfdinfo.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfidx.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfinf.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfmEnd.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfmInfo.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfmPwd.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfpwd.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfswdemo.aph
+             Type=T
+         End
+         File \gpe_tcf\u_tcfswdemo.apl
+             Type=T
+         End
+         File \gpe_tcf\u_tcfweb.apl
+             Type=T
+         End
+         File \gpe_tcf\recnew.prg
+             Type=T
+         End
+      End
+   End
+   BatchBuild_Item0=Atualizações · ASOEC
+   BatchBuild_Item1=Atualizações · ASOECWD
+   BatchBuild_Item2=Consultas · ASOEC
+   BatchBuild_Item3=Consultas · ASOECWD
+   BatchBuild_Item4=Relatórios · ASOEC
+   BatchBuild_Item5=Relatórios · ASOECWD
+   BatchBuild_Item6=Miscelânea · ASOEC
+   BatchBuild_Item7=Miscelânea · ASOECWD
+   BatchBuild_Item8=Pontos de Entrada · ASOEC
+   BatchBuild_Item9=Pontos de Entrada · ASOECWD
+   BatchBuild_Item10=Validação de Campos · ASOEC
+   BatchBuild_Item11=Validação de Campos · ASOECWD
+   BatchBuild_Item12=RhOnLine · ASOEC
+   BatchBuild_Item13=RhOnLine · ASOECWD
+End

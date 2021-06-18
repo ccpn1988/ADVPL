@@ -1,0 +1,187 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@media screen{
+	
+}
+
+*{
+	margin:0;
+	padding:0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style:normal;
+	text-decoration:none;
+	border:none;
+	font-size:11px;
+	}
+	
+body{
+	background: url(../imagens/commons/bg.gif) repeat top center;
+	overflow:visible;
+	}
+	
+h1 span, h2 span{
+	display:none;
+	}
+	
+/* ___________  CAMPOS DE FORMULÁRIOS ______ */	
+
+select{
+	border:1px solid #7F9DB9;
+	border-collapse:collapse;
+	font-size:12px;
+	}
+	
+option{
+	font-size:12px;
+	}
+	
+input{
+	border:1px solid #7F9DB9;
+	height:17px;
+	line-height:17px;
+	position:relative;
+	}
+	
+/* ___________  CAMPOS DE FORMULÁRIOS ______ */	
+
+ol, ul{
+	list-style-position:inside;
+	}
+
+	
+/* ___________  BOTÃO AQUA ______ */
+	
+button{
+	border:none;
+	background:none;
+	padding:0;
+	margin:0;
+	width:auto;
+	overflow:visible;					
+	text-align:center;	
+	white-space:nowrap;	
+	height:18px;
+	line-height:18px;
+	cursor:pointer;
+	position:relative;
+	}
+	
+button span, button em{
+	display:block;
+	margin:0;
+	height:18px;
+	font-size:10px;
+	font-weight:bold;	
+	color:#fff;
+	letter-spacing:1px;
+	}
+
+button span{
+	font-style:normal;
+	padding-left:7px;
+	background: url(../imagens/commons/btn_red_bg_cinza.gif) no-repeat 0 0;
+	}	
+button em{
+	font-style:normal;
+	padding-right:7px;
+	background: url(../imagens/commons/btn_red_bg_cinza.gif) no-repeat 100% 0;
+	line-height:15px;  /* centra o texto verticalmente*/ 
+	}
+	
+#alert{
+	width:708px;
+	margin:4% auto;
+	background: url(../imagens/commons/bottom_alert.gif) no-repeat center bottom;
+	display:table;
+	padding:0 0 18px 0;
+	}
+	
+#alert #top{
+	background:url(../imagens/commons/top_alert.gif) no-repeat center top;
+	text-align:center;
+	padding:19px 0 0 0 ;
+	}
+	
+#alert h1{
+	display:block;
+	height:100px;
+	margin: 0 0 0 0;
+	background: #E6E8ED url(../imagens/commons/borda_alert.gif) repeat-y center center;
+	text-align:center;
+	}
+	
+#alert #container{
+	background: #E6E8ED url(../imagens/commons/borda_alert.gif) repeat-y center center;
+	padding:36px 0 10px 0;
+	display:table;
+	width:100%;
+	}
+	
+#alert #container p#erro{
+	font-size:14px;
+	font-weight:bold;
+	text-transform:uppercase;
+	margin:2px 80px 0 0;
+	line-height:30px;
+	}
+	
+#alert #container p#erro span{
+	font-size:12px;
+	font-weight:normal;
+	text-transform:none;
+	}
+	
+#alert #container .linha{
+	background: #E6E8ED url(../imagens/commons/div_alert.gif) repeat-x center center;
+	height:2px;
+	font-size:1px;
+	margin:0 50px 16px 50px;
+	clear:both;
+	}
+	
+#alert #container img{
+	float:left;
+	margin:0 26px 45px 100px;
+	}
+	
+#alert #container button{
+	float:right;
+	margin:0 60px 0 0;
+	height:21px;
+	line-height:21px;
+	}
+	
+#alert #container button span, #alert #container button em{
+	height:21px;
+	font-size:11px;
+	}
+	
+#alert #container button span{
+	background: url(../imagens/commons/btn_blue_bg_cinza.gif) no-repeat 0 0;
+	padding-left:12px;
+	}	
+#alert #container button em{
+	background: url(../imagens/commons/btn_blue_bg_cinza.gif) no-repeat 100% 0;
+	line-height:21px;
+	padding-right:12px;
+	}
+
+/* ___________  RODAPÉ ______ */
+
+address{
+	background:url(../imagens/commons/bg_rodape.png) no-repeat bottom center;
+	display:block;
+	height:53px;
+	color:#fff;
+	text-align:center;
+	line-height:53px;
+	margin:16px 0 0 0;
+	clear:both;
+	}
+	
+address span{
+	display:block;
+	padding:4px 0 0 0;
+	font-size:9px;
+	}

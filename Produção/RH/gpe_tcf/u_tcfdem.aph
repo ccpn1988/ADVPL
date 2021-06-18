@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<link href="css/estilos.css" rel="stylesheet" type="text/css" media="all" />
+	<%= u_w_TcfStyle() %>
+</head>
+<body>
+	<div id="wrap_b2c">
+<!--// TOPO //////////////////////-->
+		<div id="top">
+			<h1>RH Online</h1>
+		</div>
+<!--// INÍCIO DA COLUNA PERFIL //////////////////////-->
+		<div id="perfil">
+			<!--// IDENTIFICAÇÃO //////////////////////-->
+			<%= U_W_TcfId() %>
+			<!--// MENU GLOBAL //////////////////////-->
+			<%= U_W_TcfGlbMnu() %>
+		</div>
+<!--// FIM DA COLUNA PERFIL //////////////////////-->
+<!--// MENU AÇÕES (IMPRIMIR e SAIR) //////////////////////-->
+		<ul id="menu_acoes">
+			<!--<li><a href="#"><img src="imagens/b2c/btn_imprimir.gif" alt="Imprimir" /><span>&nbsp;</span></a></li>-->
+			<%= u_w_TcfSair() %>
+		</ul>
+<!--// CONTEÚDO //////////////////////-->
+		<div id="conteudo">
+			<h2><img src="imagens/b2c/ttl_folha_de_pagamento.gif" alt="Folha de Pagamento" /><span>Folha de Pagamento</span></h2>
+			<h3>Demonstrativo de Pagamento</h3>
+			<p>Selecione as opções abaixo:</p>
+			<form method="post" action="u_w_TCFSwDemo.apw" id="folha_pagamento">
+				<fieldset>
+					<label>Mês:
+						<select name="cMes" id="mes" >
+							<script type="text/javascript">
+								var aMeses = new Array()
+								<%= ( 'var cMesBase="' + MesExtenso(dDataBase) + '"' ) %>
+								var nI
+								<%= ( 'aMeses[0]="'		+ MesExtenso(Ctod('15/01/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[1]="'		+ MesExtenso(Ctod('15/02/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[2]="' 	+ MesExtenso(Ctod('15/03/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[3]="' 	+ MesExtenso(Ctod('15/04/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[4]="' 	+ MesExtenso(Ctod('15/05/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[5]="' 	+ MesExtenso(Ctod('15/06/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[6]="' 	+ MesExtenso(Ctod('15/07/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[7]="' 	+ MesExtenso(Ctod('15/08/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[8]="'		+ MesExtenso(Ctod('15/09/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[9]="' 	+ MesExtenso(Ctod('15/10/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[10]="'	+ MesExtenso(Ctod('15/11/70','DDMMYY')) + '"' ) %>	
+								<%= ( 'aMeses[11]="'	+ MesExtenso(Ctod('15/12/70','DDMMYY')) + '"' ) %>	
+								for ( nI = 0 ; nI < aMeses.length ; nI++ )
+									{
+										if ( aMeses[ nI ] == cMesBase ) { document.write("<option selected value=") }
+										else { document.write("<option select value=") }
+										document.write("'"+( nI + 1 )+"'>" + aMeses[nI] + "<\/option>" )
+									}
+							</script>
+						</select>
+					</label>
+					<label>Ano:
+						<select name="cAno" id="ano">
+							<script type="text/javascript">    
+								var nAnoIni = <%= Year( SRA->RA_ADMISSA ) %>
+								var nAnoFim = <%= Year( dDataBase ) %>
+								var nI
+								for ( nI = nAnoIni ; nI <= nAnoFim ; nI++ )
+									{
+										if ( nI == nAnoFim ) { document.write("<option selected value='"+nI+"'>" + nI + "<\/option>") }
+										else { document.write("<option selected value='"+nI+"'>" + nI + "<\/option>") }
+									}
+							</script>
+						</select>
+					</label>
+					<label>Semana:
+						<select name="cSemana" id="semana">
+							<script type="text/javascript">    
+								var nI
+								for ( nI = 0 ; nI <= 99 ; nI++ )
+									{
+										if ( nI == 0 )
+											{
+												document.write("<option select value=''><\/option>")
+											}
+										else						 	
+											{
+												document.write("<option select value='"+nI+"'>"+nI+"<\/option>")
+											}
+									}
+							</script>
+						</select>
+					</label>
+					<br />
+					<label>Tipo:
+						<select name="cRecTipo" size=1 class="campos_1">
+							<option 		 value="01"> Adiantamento			</option>
+							<option selected value="02"> Folha					</option>
+							<option 		 value="03"> 1a. Parcela 13&ordm;	</option>
+							<option 		 value="04"> 2a. Parcela 13&ordm;	</option>
+							<option 		 value="05"> Valores Extras			</option>
+						</select>
+					</label>
+					<button type="submit" ><span><em>OK</em></span></button>
+				</fieldset>
+			</form>
+		</div>
+<!--// RODAPÉ //////////////////////-->
+	<address><span>Designed by NaldoDj</span></address>
+</div>
+</body>
+</html>

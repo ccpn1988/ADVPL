@@ -1,0 +1,36 @@
+
+
+
+Function H_u_tcfdinfo(__aCookies,__aPostParms,__nProcId,__aProcParms,__cHTTPPage)
+Local __Response := ""
+
+__Response += PlainH_1()
+__Response += "" + cValToChar(HttpSession->cDefMsg) + "" + CHR(13)+CHR(10)
+__Response += PlainH_2()
+
+Return(__Response)
+
+Static Function PlainH_1()
+Local __Response := ""
+
+__Response += "<!--// CONTEÚDO //////////////////////-->" + CHR(13)+CHR(10)
+__Response += '<table id="tab_demonst" cellspacing="0" cellpadding="0" summary="Tabela descrevendo informações de funcionários e sua folha de pagamento.">' + CHR(13)+CHR(10)
+__Response += "	<tr>" + CHR(13)+CHR(10)
+__Response += "		<td>" + CHR(13)+CHR(10)
+__Response += '			<div id="container">' + CHR(13)+CHR(10)
+__Response += '				<img src="imagens/commons/img_atencao.gif" alt="Aten&ccedil;&atilde;o" />' + CHR(13)+CHR(10)
+__Response += '				<p id="erro">' + CHR(13)+CHR(10)
+__Response += "					<span>Prezado Colaborador.</span>" + CHR(13)+CHR(10)
+__Response += "				</p>" + CHR(13)+CHR(10)
+__Response += "				<br/>" + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_2()
+Local __Response := ""
+
+__Response += '				<div class="linha"></div>' + CHR(13)+CHR(10)
+__Response += "			</div>" + CHR(13)+CHR(10)
+__Response += "		</td>" + CHR(13)+CHR(10)
+__Response += "	</tr>" + CHR(13)+CHR(10)
+__Response += "</table>" + CHR(13)+CHR(10)
+Return(__Response)

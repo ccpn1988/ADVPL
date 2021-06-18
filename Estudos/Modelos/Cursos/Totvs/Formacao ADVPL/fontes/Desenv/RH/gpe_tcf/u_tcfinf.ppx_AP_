@@ -1,0 +1,85 @@
+
+
+
+Function H_u_tcfinf(__aCookies,__aPostParms,__nProcId,__aProcParms,__cHTTPPage)
+Local __Response := ""
+
+__Response += PlainH_1()
+__Response += "" + cValToChar(u_w_TcfStyle()) + "" + CHR(13)+CHR(10)
+__Response += PlainH_2()
+__Response += "" + cValToChar(U_W_TcfId()) + "" + CHR(13)+CHR(10)
+__Response += PlainH_3()
+__Response += "" + cValToChar(U_W_TcfGlbMnu()) + "" + CHR(13)+CHR(10)
+__Response += PlainH_4()
+__Response += "" + cValToChar( u_w_TcfSair() ) + "" + CHR(13)+CHR(10)
+__Response += PlainH_5()
+
+Return(__Response)
+
+Static Function PlainH_1()
+Local __Response := ""
+
+__Response += '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' + CHR(13)+CHR(10)
+__Response += '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">' + CHR(13)+CHR(10)
+__Response += "<head>" + CHR(13)+CHR(10)
+__Response += "<title>RH Online</title>" + CHR(13)+CHR(10)
+__Response += '	<meta http-equiv="content-type"		content="text/html; charset=iso-8859-1" />' + CHR(13)+CHR(10)
+__Response += '	<meta http-equiv="content-language"	content="pt-br" />' + CHR(13)+CHR(10)
+__Response += '	<link href="css/estilos.css"		rel="stylesheet" type="text/css" media="all" />' + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_2()
+Local __Response := ""
+
+__Response += "</head>" + CHR(13)+CHR(10)
+__Response += "<body>" + CHR(13)+CHR(10)
+__Response += '	<div id="wrap_b2c">' + CHR(13)+CHR(10)
+__Response += "<!--// TOPO //////////////////////-->" + CHR(13)+CHR(10)
+__Response += '		<div id="top">' + CHR(13)+CHR(10)
+__Response += "			<h1>RH Online</h1>" + CHR(13)+CHR(10)
+__Response += "		</div>" + CHR(13)+CHR(10)
+__Response += "<!--// INÍCIO DA COLUNA PERFIL //////////////////////-->" + CHR(13)+CHR(10)
+__Response += '		<div id="perfil">' + CHR(13)+CHR(10)
+__Response += "			<!--// IDENTIFICAÇÃO //////////////////////-->" + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_3()
+Local __Response := ""
+
+__Response += "			<!--// MENU GLOBAL //////////////////////-->" + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_4()
+Local __Response := ""
+
+__Response += "		</div>" + CHR(13)+CHR(10)
+__Response += "<!--// FIM DA COLUNA PERFIL //////////////////////-->" + CHR(13)+CHR(10)
+__Response += "<!--// MENU AÇÕES (IMPRIMIR e SAIR) //////////////////////-->" + CHR(13)+CHR(10)
+__Response += '		<ul id="menu_acoes">' + CHR(13)+CHR(10)
+__Response += '			<!--<li><a href="#"><img src="imagens/b2c/btn_imprimir.gif" alt="Imprimir" /><span>&nbsp;</span></a></li>-->' + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_5()
+Local __Response := ""
+
+__Response += "		</ul>" + CHR(13)+CHR(10)
+__Response += "<!--// CONTEÚDO //////////////////////-->" + CHR(13)+CHR(10)
+__Response += '		<div id="conteudo">' + CHR(13)+CHR(10)
+__Response += '			<h2><img src="imagens/b2c/ttl_informativo.gif" alt="Informativo" /><span>Informativos</span></h2>' + CHR(13)+CHR(10)
+__Response += "			<p>Prezado Colaborador.</p>" + CHR(13)+CHR(10)
+__Response += "			<p>Leia atentamente os seguintes Termos e Condições para o uso desse Website.</p>" + CHR(13)+CHR(10)
+__Response += "			<h3>Termos e Condições:</h3>" + CHR(13)+CHR(10)
+__Response += "			<p><strong>Termos:</strong></p>" + CHR(13)+CHR(10)
+__Response += "			<p>Estou ciente de que a senha de acesso que cadastrei garante o meu acesso exclusivo às informacoes cadastradas, comprometendo-me a não divulgá-la a outras pessoas. Estou ciente também de que posso trocar a senha a qualquer momento, visando garantir a segurança de meus dados</p>" + CHR(13)+CHR(10)
+__Response += "			<p><strong>Condições:</strong></p>" + CHR(13)+CHR(10)
+__Response += "			<p>1. Não revele a sua senha para ninguém, ela será solicitada sempre que você desejar acessar o Rh on-line.</p>" + CHR(13)+CHR(10)
+__Response += "			<p>2. Você deve ter um cuidado especial ao escolher sua senha. EVITE senhas óbvias tais como seu nome, seu e-mail, sobrenome, suas iniciais, data de nascimento, etc.</p>" + CHR(13)+CHR(10)
+__Response += "			<p>3. Se você desconfiar que terceiros obtiveram sua senha, ou você por algum motivo forneceu-a a terceiros, altere-a imediatamente acionando o botão alterar senha na tela de login do Sistema Protheus RH on-line.</p>" + CHR(13)+CHR(10)
+__Response += "			<p>4. Será de sua total responsabilidade o uso do serviço de impressão em qualquer impressora nas instalações da ASOEC, isentando a Instituição de toda e qualquer responsabilidade sobre a divulgação de suas informações.</p>" + CHR(13)+CHR(10)
+__Response += "		</div>" + CHR(13)+CHR(10)
+__Response += "<!--// RODAPÉ //////////////////////-->" + CHR(13)+CHR(10)
+__Response += "		<address><span>Designed by NaldoDj</span></address>" + CHR(13)+CHR(10)
+__Response += "</div>" + CHR(13)+CHR(10)
+__Response += "</body>" + CHR(13)+CHR(10)
+__Response += "</html>" + CHR(13)+CHR(10)
+Return(__Response)

@@ -1,0 +1,73 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@media print{
+
+	
+body{
+	background:#ffffff;
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+	font-size:9pt;
+	width:100%;
+	}
+
+#wrap_b2c #top , #perfil, #wrap_b2c address, #wrap_b2c #identificacao, #wrap_b2c #menu_acoes,
+#wrap_b2c #conteudo #demonstrativo h2, #wrap_b2c #conteudo #demonstrativo h3,
+#wrap_b2c #conteudo #demonstrativo p, #wrap_b2c #conteudo #demonstrativo a, #wrap_b2c #conteudo #display_tabela {
+	display:none;
+	margin:0;
+	padding:0;
+	}
+	
+#conteudo{
+	float:none;
+	width:17cm;
+	border:none;
+	background:none;
+	padding:0 0 0 0;
+	margin:0;
+	left:0;
+	top:0;
+	background-color:#ffffff;
+	}
+	
+#demonstrativo table{
+	width:100%;
+	display:block;
+	font-size:9pt;
+	margin:0;
+	page-break-after: auto;
+	}
+
+table thead{display:table-header-group}
+
+table tfoot{
+	display:table-footer-group;
+	}
+	
+#demonstrativo table thead tr td, #demonstrativo table thead tr th,
+#demonstrativo table tbody tr td, #demonstrativo table tbody tr th,{
+	font-size:10pt;
+	}
+	
+#demonstrativo table tfoot tr td{
+	font-size:9pt;
+	}
+	
+table tfoot td span.autenticacao{
+	display:block;
+	font-size:5pt;
+	}
+	
+#demonstrativo table#tab_demonst{
+		display: block!important;
+		height: auto!important
+	}
+
+table tfoot td.autenticacao img{
+                width:750px;
+                height:auto;
+}
+	
+}

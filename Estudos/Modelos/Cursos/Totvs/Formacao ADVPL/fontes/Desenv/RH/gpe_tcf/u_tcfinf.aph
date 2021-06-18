@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type"		content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language"	content="pt-br" />
+	<link href="css/estilos.css"		rel="stylesheet" type="text/css" media="all" />
+	<%=u_w_TcfStyle()%>
+</head>
+<body>
+	<div id="wrap_b2c">
+<!--// TOPO //////////////////////-->
+		<div id="top">
+			<h1>RH Online</h1>
+		</div>
+<!--// INÍCIO DA COLUNA PERFIL //////////////////////-->
+		<div id="perfil">
+			<!--// IDENTIFICAÇÃO //////////////////////-->
+			<%=U_W_TcfId()%>
+			<!--// MENU GLOBAL //////////////////////-->
+			<%=U_W_TcfGlbMnu()%>
+		</div>
+<!--// FIM DA COLUNA PERFIL //////////////////////-->
+<!--// MENU AÇÕES (IMPRIMIR e SAIR) //////////////////////-->
+		<ul id="menu_acoes">
+			<!--<li><a href="#"><img src="imagens/b2c/btn_imprimir.gif" alt="Imprimir" /><span>&nbsp;</span></a></li>-->
+			<%= u_w_TcfSair() %>
+		</ul>
+<!--// CONTEÚDO //////////////////////-->
+		<div id="conteudo">
+			<h2><img src="imagens/b2c/ttl_informativo.gif" alt="Informativo" /><span>Informativos</span></h2>
+			<p>Prezado Colaborador.</p>
+			<p>Leia atentamente os seguintes Termos e Condições para o uso desse Website.</p>
+			<h3>Termos e Condições:</h3>
+			<p><strong>Termos:</strong></p>
+			<p>Estou ciente de que a senha de acesso que cadastrei garante o meu acesso exclusivo às informacoes cadastradas, comprometendo-me a não divulgá-la a outras pessoas. Estou ciente também de que posso trocar a senha a qualquer momento, visando garantir a segurança de meus dados</p>
+			<p><strong>Condições:</strong></p>
+			<p>1. Não revele a sua senha para ninguém, ela será solicitada sempre que você desejar acessar o Rh on-line.</p>
+			<p>2. Você deve ter um cuidado especial ao escolher sua senha. EVITE senhas óbvias tais como seu nome, seu e-mail, sobrenome, suas iniciais, data de nascimento, etc.</p>
+			<p>3. Se você desconfiar que terceiros obtiveram sua senha, ou você por algum motivo forneceu-a a terceiros, altere-a imediatamente acionando o botão alterar senha na tela de login do Sistema Protheus RH on-line.</p>
+			<p>4. Será de sua total responsabilidade o uso do serviço de impressão em qualquer impressora nas instalações da ASOEC, isentando a Instituição de toda e qualquer responsabilidade sobre a divulgação de suas informações.</p>
+		</div>
+<!--// RODAPÉ //////////////////////-->
+		<address><span>Designed by NaldoDj</span></address>
+</div>
+</body>
+</html>

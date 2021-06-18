@@ -1,0 +1,77 @@
+<%
+	Local aReferencia := { "Adiantamento" , "Folha" , "1a Parcela 13º" , "2a Parcela 13º" , "Valores Extras" }
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type"		content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language"	content="pt-br" />
+	<meta http-equiv="X-UA-Compatible"	content="IE=EmulateIE7" /> 
+	<link href="css/estilos.css"		rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript"  	src="js/scripts.js"></script>
+	<!--Código para o menu acordion-->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">	
+		$(document).ready(function() {
+			$('#show').click(function(){
+			  $('#tab_demonst').show();
+			  $('#hide').show();
+			  $('#show').hide();
+		   });
+		  $('#hide').click(function(){
+			  $('#tab_demonst').hide();
+			  $('#show').show();
+			  $('#hide').hide();
+		   });
+		});
+	</script>
+	<script type="text/javascript">
+
+		function imprimir() {
+			if (window.print)
+			window.print()
+			else
+			alert("Para imprimir pressione Crtl+P.");
+		}
+	</script>
+	<%=u_w_TcfStyle()%>
+</head>
+<body>
+	<div id="wrap_b2c">
+<!--// TOPO //////////////////////-->
+		<div id="top">
+			<h1>RH Online</h1>
+		</div>
+<!--// INÍCIO DA COLUNA PERFIL //////////////////////-->
+		<div id="perfil">
+			<!--// IDENTIFICAÇÃO //////////////////////-->
+			<%=U_W_TcfId()%>
+			<!--// MENU GLOBAL //////////////////////-->
+			<%=U_W_TcfGlbMnu()%>
+		</div>
+<!--// FIM DA COLUNA PERFIL //////////////////////-->
+<!--// MENU AÇÕES (IMPRIMIR e SAIR) //////////////////////-->
+		<ul id="menu_acoes">
+			<li><a href="javascript:imprimir()"><img src="imagens/b2c/btn_imprimir.gif" alt="Imprimir" /><span>&nbsp;</span></a></li>
+			<%= u_w_TcfSair() %>
+		</ul>
+<!--// CONTEÚDO //////////////////////-->
+		<div id="conteudo">
+			<div id="demonstrativo">
+				<h2><img src="imagens/b2c/ttl_folha_de_pagamento.gif" alt="Folha de Pagamento" /><span>Folha de Pagamento</span></h2>
+				<h3>Demonstrativo de Pagamento</h3>
+				<p>Para visualizar o demonstrativo clique no link "Exibir", para imprimir clique sobre o botão azul "imprimir" localizado no canto superior direito</p>
+				<div id="display_tabela">
+					<span><strong>Mês de Referência:</strong> <%=MesExtenso(Val(HttpPost->cMes))+"/"+HttpPost->cAno+" - "+aReferencia[Val(HttpPost->cRecTipo)]%></span>
+					<button id="show">[+] Exibir</button>
+					<button id="hide">[-] Ocultar</button>
+				</div>
+				<%=u_w_SwTCFDemo()%>
+			</div>
+		</div>
+<!--// RODAPÉ //////////////////////-->
+<address><span>Designed by NaldoDj</span></address>
+</div>
+</body>
+</html>

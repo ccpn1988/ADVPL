@@ -1,0 +1,4 @@
+1 ) Abra o projeto gpe_tcf.prj através da IDE do protues e compile-o;
+2 ) copie a pasta tcf para o diretório onde está configurado o módulo web tcf;
+3 ) Altere as imagens conforme necessidade de sua empresa;
+4 ) Altere o DEFAULTPAGE de sua configuração web TCF de forma que fique com DEFAULTPAGE=u_w_tcfinit.apw

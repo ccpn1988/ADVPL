@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<link href="css/estilos.css" rel="stylesheet" type="text/css" media="all" />
+	<%=u_w_TcfStyle()%>	
+</head>
+<body>
+	<div id="alert">
+		<div id="top">
+			<h1><img src="imagens/commons/ttl_asoec_rhonline.jpg" alt="RH Online | ASOEC" /><span>RH Online</span></h1>
+		</div>
+		<div id="container">
+			<img src="imagens/commons/img_atencao.gif" alt="Aten&ccedil;&atilde;o" />
+			<p id="erro">
+				<span>Prezado Colaborador.</span>
+				<br/>
+				<%=HttpSession->cDefMsg%>
+			</p>
+			<div class="linha"></div>
+			<form method="post" action="<%=HttpSession->cDefReturn%>" name="msg_info" id="msg_info">
+				<button type="submit"><span><em> Voltar </em></span></button>
+			</form>	
+		</div>
+	</div>	
+</body>
+</html>

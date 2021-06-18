@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<link href="css/estilos.css"	rel="stylesheet" type="text/css"		media="all" />
+	<script type="text/javascript"  src="js/scripts.js"></script>
+	<%= u_w_TcfStyle() %>
+</head>
+<body onLoad="document.forms[0].cEmpFil.focus()">
+<div id="wrap_b2b">
+	<div id="conteudo_b2b">
+		<h1><span>Seja bem-vindo ao RH Online</span></h1>
+		<form name="login" id="login" method="post" action="u_w_TcfStart.apw">
+			<fieldset>
+				<h2><span>Login</span></h2>
+				<label for="empresa" id="label_empresa">
+					<span>Empresa/Filial</span>
+					<select name="cEmpFil" id="cEmpFil">
+						<%= u_w_TcfGetEmp() %>
+					</select>
+				</label>
+				<label for="matricula" id="label_matricula" class="posicao_1">
+					<span>Matrícula</span>
+					<input type="text" name="cMatricula" id="cMatricula" 	size="6" maxlength="6" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,6,6,'Matrícula')" onKeyUp="autotab(this);"/>
+				</label>
+				<label for="senha" id="label_senha" class="posicao_2">
+					<span>Senha</span>
+					<input type="password" name="cPassWord" id="cPassWord"	size="6" maxlength="6" onKeyPress="return letternumber(event)" onBlur="MinMaxChar(this,6,6,'Senha')" onKeyUp="autotab(this);"/>
+				</label>
+				<div class="limpa_float"></div>
+					<!--<button class="btn_cinza posicao_1"><span><em>Alterar Senha</em></span></button>-->
+					<!--<button class="btn_cinza"><span><em>Limpar</em></span></button>-->
+					<button type="submit" class="posicao_2" onclick="return verificaCampoVazio('login');"><span><em>Entrar</em></span></button>
+			</fieldset>
+		</form>
+		<address><span>Designed by NaldoDj</span></address>
+	</div>
+</div>
+</body>
+</html>

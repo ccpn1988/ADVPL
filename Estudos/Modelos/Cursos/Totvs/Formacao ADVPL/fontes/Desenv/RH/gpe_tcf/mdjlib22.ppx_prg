@@ -1,0 +1,213 @@
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Dialog.ch"
+#line 28 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Font.ch"
+#line 29 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\PTMenu.ch"
+#line 31 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Print.ch"
+#line 33 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Colors.ch"
+#line 35 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\Folder.ch"
+#line 37 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\msobject.ch"
+#line 38 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\VKey.ch"
+#line 42 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\WinApi.ch"
+#line 44 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCommand.ch"
+#line 47 "PROTHEUS.CH"
+#line 1 "T:\TOTVS\PROTHE~1\INCLUDE\FWCSS.CH"
+#line 50 "PROTHEUS.CH"
+#line 3 "t:\totvs\PROTHE~1\PROTHE~1\sigadoc\ANALIS~1\fontes\rh\gpe_tcf\mdjlib22.prg"
+Static nStcSeed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Function U_MDJLIB22Exec(cExecIn,aFormParam)
+
+Local uRet
+
+cExecIn := If( cExecIn == nil, "", cExecIn ) ;
+aFormParam := If( aFormParam == nil, {}, aFormParam ) ;
+
+IF !Empty( cExecIn )
+	cExecIn	:= BldcExecInFun( cExecIn , aFormParam )
+	uRet	:= &( cExecIn )
+EndIF
+
+Return( uRet )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function EnCrypt( cUncrypted )
+Return( Embaralha( EnCodeUtf8( EnCode64( ApxTo64( cUncrypted ) ) ) , 0 ) )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function DeCrypt( cEncrypted )
+Return( Ap64Tox( Decode64( DeCodeUtf8( Embaralha( cEncrypted , 1 ) ) ) ) )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function SplitCrypt( cEncrypted , nParts )
+
+Local aSplit := {}
+
+Local cSplit
+
+cEncrypted := If( cEncrypted == nil, "", cEncrypted ) ;
+nParts := If( nParts == nil, Max(Int(Len(cEncrypted)/2),1), nParts ) ;
+
+Begin Sequence
+
+	IF Empty( cEncrypted )
+		Break
+	EndIF
+
+	cSplit := cEncrypted
+	While !Empty( cSplit )
+		aAdd( aSplit , SubStr( cSplit , 1 , nParts ) )
+		cSplit := SubStr( cSplit , nParts + 1 )
+	end
+
+end
+
+Return( aSplit )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static Function Random( nRange , nMin , nMax )
+
+
+
+
+Local bRandom	:= { || ( nRandom := Aleatorio( nRange , @nStcSeed ) ), ( ( nRandom >= nMin ) .and.  ( nRandom <= nMax ) ) }
+
+Local nRandom
+
+nRange := If( nRange == nil, 1, nRange ) ;
+nMin := If( nMin == nil, 0, nMin ) ;
+nMax := If( nMax == nil, nRange, nMax ) ;
+
+nStcSeed := If( nStcSeed == nil, Int((nRange/2)), nStcSeed ) ;
+
+nMin				:= Max( nMin	, 0 )
+nMax				:= Max( nMax	, 1 )
+nRange				:= Max( nRange , 1 )
+
+IF ( nMin > nMax )
+	nMin := 0
+EndIF
+
+
+
+
+
+IF ( ( nMax < nMin ) .or.  ( nMax > nRange ) )
+	nMax := nRange
+EndIF
+
+While !Eval( bRandom )
+
+
+
+
+	 IF ( ( nRandom < nMin ) .or.  ( nRandom > nMax ) )
+	 	IF ( nStcSeed < nMin )
+     		nStcSeed += nMin
+     		nStcSeed := Min( nMax , nStcSeed )
+     	ElseIF ( nStcSeed > nMax )
+     		nStcSeed -= ( nMax - nMin )
+     		nStcSeed := Max( nMin , nStcSeed )
+     	EndIF
+     EndIF
+end
+
+Return( nRandom )

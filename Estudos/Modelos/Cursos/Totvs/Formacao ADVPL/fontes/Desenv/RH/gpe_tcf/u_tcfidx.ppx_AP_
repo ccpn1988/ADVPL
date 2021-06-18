@@ -1,0 +1,68 @@
+
+
+
+Function H_u_tcfidx(__aCookies,__aPostParms,__nProcId,__aProcParms,__cHTTPPage)
+Local __Response := ""
+
+__Response += PlainH_1()
+__Response += "" + cValToChar( u_w_TcfStyle() ) + "" + CHR(13)+CHR(10)
+__Response += PlainH_2()
+__Response += "" + cValToChar( u_w_TcfGetEmp() ) + "" + CHR(13)+CHR(10)
+__Response += PlainH_3()
+
+Return(__Response)
+
+Static Function PlainH_1()
+Local __Response := ""
+
+__Response += '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' + CHR(13)+CHR(10)
+__Response += '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">' + CHR(13)+CHR(10)
+__Response += "<head>" + CHR(13)+CHR(10)
+__Response += "<title>RH Online</title>" + CHR(13)+CHR(10)
+__Response += '	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />' + CHR(13)+CHR(10)
+__Response += '	<meta http-equiv="content-language" content="pt-br" />' + CHR(13)+CHR(10)
+__Response += '	<link href="css/estilos.css"	rel="stylesheet" type="text/css"		media="all" />' + CHR(13)+CHR(10)
+__Response += '	<script type="text/javascript"  src="js/scripts.js"></script>' + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_2()
+Local __Response := ""
+
+__Response += "</head>" + CHR(13)+CHR(10)
+__Response += '<body onLoad="document.forms[0].cEmpFil.focus()">' + CHR(13)+CHR(10)
+__Response += '<div id="wrap_b2b">' + CHR(13)+CHR(10)
+__Response += '	<div id="conteudo_b2b">' + CHR(13)+CHR(10)
+__Response += "		<h1><span>Seja bem-vindo ao RH Online</span></h1>" + CHR(13)+CHR(10)
+__Response += '		<form name="login" id="login" method="post" action="u_w_TcfStart.apw">' + CHR(13)+CHR(10)
+__Response += "			<fieldset>" + CHR(13)+CHR(10)
+__Response += "				<h2><span>Login</span></h2>" + CHR(13)+CHR(10)
+__Response += '				<label for="empresa" id="label_empresa">' + CHR(13)+CHR(10)
+__Response += "					<span>Empresa/Filial</span>" + CHR(13)+CHR(10)
+__Response += '					<select name="cEmpFil" id="cEmpFil">' + CHR(13)+CHR(10)
+Return(__Response)
+
+Static Function PlainH_3()
+Local __Response := ""
+
+__Response += "					</select>" + CHR(13)+CHR(10)
+__Response += "				</label>" + CHR(13)+CHR(10)
+__Response += '				<label for="matricula" id="label_matricula" class="posicao_1">' + CHR(13)+CHR(10)
+__Response += "					<span>Matrícula</span>" + CHR(13)+CHR(10)
+__Response += '					<input type="text" name="cMatricula" id="cMatricula" 	size="6" maxlength="6" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,6,6,' + CHR(39) + "Matrícula" + CHR(39) + ')" onKeyUp="autotab(this);"/>' + CHR(13)+CHR(10)
+__Response += "				</label>" + CHR(13)+CHR(10)
+__Response += '				<label for="senha" id="label_senha" class="posicao_2">' + CHR(13)+CHR(10)
+__Response += "					<span>Senha</span>" + CHR(13)+CHR(10)
+__Response += '					<input type="password" name="cPassWord" id="cPassWord"	size="6" maxlength="6" onKeyPress="return letternumber(event)" onBlur="MinMaxChar(this,6,6,' + CHR(39) + "Senha" + CHR(39) + ')" onKeyUp="autotab(this);"/>' + CHR(13)+CHR(10)
+__Response += "				</label>" + CHR(13)+CHR(10)
+__Response += '				<div class="limpa_float"></div>' + CHR(13)+CHR(10)
+__Response += '					<!--<button class="btn_cinza posicao_1"><span><em>Alterar Senha</em></span></button>-->' + CHR(13)+CHR(10)
+__Response += '					<!--<button class="btn_cinza"><span><em>Limpar</em></span></button>-->' + CHR(13)+CHR(10)
+__Response += '					<button type="submit" class="posicao_2" onclick="return verificaCampoVazio(' + CHR(39) + "login" + CHR(39) + ');"><span><em>Entrar</em></span></button>' + CHR(13)+CHR(10)
+__Response += "			</fieldset>" + CHR(13)+CHR(10)
+__Response += "		</form>" + CHR(13)+CHR(10)
+__Response += "		<address><span>Designed by NaldoDj</span></address>" + CHR(13)+CHR(10)
+__Response += "	</div>" + CHR(13)+CHR(10)
+__Response += "</div>" + CHR(13)+CHR(10)
+__Response += "</body>" + CHR(13)+CHR(10)
+__Response += "</html>" + CHR(13)+CHR(10)
+Return(__Response)

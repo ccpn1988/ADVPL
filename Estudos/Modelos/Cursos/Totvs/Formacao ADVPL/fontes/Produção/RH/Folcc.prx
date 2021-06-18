@@ -1,0 +1,17 @@
+#include "rwmake.ch"   
+
+User Function FolCC()        
+
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Declaracao de variaveis utilizadas no programa atraves da funcao    ³
+//³ SetPrvt, que criara somente as variaveis definidas pelo usuario,    ³
+//³ identificando as variaveis publicas do sistema utilizadas no codigo ³
+//³ Incluido pelo assistente de conversao do AP5 IDE                    ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+SetPrvt("_RETNOS,")
+
+//// RETORNA Conta sem digito para bradesco
+// IRAN DIAS - 03/05/2012
+
+_RETNOS := STRZERO(VAL(SUBST(SRA->RA_CTDEPSA,1,AT("-",SRA->RA_CTDEPSA)-1)),12)

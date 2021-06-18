@@ -1,0 +1,573 @@
+#INCLUDE "TOTVS.ch"
+#INCLUDE "rwmake.ch"
+#INCLUDE "PROTHEUS.ch"
+#INCLUDE "TBICONN.CH"
+#INCLUDE "TopConn.ch"
+
+User Function M410LIOK()
+
+Local _aArea	:= GetArea()
+Local aAreaSB1	:= SB1->(GetArea())
+Local aAreaDA1	:= DA1->(GetArea())
+Local _lRet 	:= .T.
+Local cProbDesc	:= ""
+Local nValBrut	:= 0
+Local nValLiq	:= 0 
+Local nVldDesc	:= 0
+Local cTabPad	:= ""
+Local aEmpAux	:= {}
+
+If GdDeleted()
+	Return .T.
+EndIf
+
+If ISINCALLSTACK("U_GENA011T") .OR. ISINCALLSTACK("U_GENA011C")
+	Return .T.			
+EndIf
+
+//If cFilAnt == "1022" .AND. !ISINCALLSTACK("U_GENA006") .AND. !ISINCALLSTACK("U_GENA082") .AND. !ISINCALLSTACK("U_GENA082P")
+
+If M->C5_TIPO == "N" .AND. !ISINCALLSTACK("U_GENA006") .AND. !ISINCALLSTACK("U_GENA082") .AND. !ISINCALLSTACK("U_GENA082P")
+	
+	aEmpAux := FWLoadSM0()
+	
+	// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+	If AllTrim(SA1->A1_COD) <> AllTrim(M->C5_CLIENTE)
+		SA1->(DbsetOrder(1))
+		SA1->(DbSeek(xFilial("SA1")+M->C5_CLIENTE+M->C5_LOJACLI))	
+	EndIf
+	
+	If aScan(aEmpAux, {|x| AllTrim(x[18]) == AllTrim(SA1->A1_CGC) } ) == 0
+		// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+		If AllTrim(SB1->B1_COD) <> AllTrim(GdFieldGet("C6_PRODUTO")) 
+			SB1->(DbSetOrder(1))
+			SB1->(DbSeek(xFilial("SB1")+GdFieldGet("C6_PRODUTO")))
+		EndIf
+		
+		// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+		If AllTrim(SA1->A1_COD) <> AllTrim(M->C5_CLIENTE)
+			SA1->(DbsetOrder(1))
+			SA1->(DbSeek(xFilial("SA1")+M->C5_CLIENTE+M->C5_LOJACLI))	
+		EndIf
+		
+		If !Empty(M->C5_TABELA)
+			cTabPad	:= M->C5_TABELA
+		ElseIf !Empty(SA1->A1_TABELA)
+			cTabPad	:= SA1->A1_TABELA
+		Else
+			If upper(alltrim(GetEnvServer())) $ "SCHEDULE"
+				cTabPad	:= GetMv("GEN_FAT064")
+			EndIf	  
+		EndIf
+		
+		If !Empty(cTabPad) .AND. SB1->B1_TIPO $ "PA#SV" 
+			DA1->( DbSetOrder(1) )
+			If !DA1->(dbSeek(xFilial("DA1")+cTabPad+GdFieldGet("C6_PRODUTO"))) .OR. DA1->DA1_PRCVEN == 0
+				If !("SCHEDULE" $ upper(alltrim(GetEnvServer())) )
+					MsgBox("Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto sem tabela de pre็o para tabela "+cTabPad+"!","Aten็ใo")
+					_lRet	:= .F.
+				Else
+					_lRet	:= .F.					
+				EndIf		
+				AutoGrLog( "M410LIOK - Filial:"+cFilant+" Pedido: "+M->C5_NUM+" "+DtoC(DDataBase)+" "+Time() )				
+				AutoGrLog( "M410LIOK - Erro - Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto sem tabela de pre็o para tabela "+cTabPad+"!","Aten็ใo" )			
+			EndIf
+		EndIf
+		
+		If _lRet .AND. SB1->B1_TIPO $ "PA#SV"
+			// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+			If AllTrim(SB5->B5_COD) <> AllTrim(GdFieldGet("C6_PRODUTO")) 
+				SB5->(DbSetOrder(1))
+				SB5->(DbSeek(xFilial("SB5")+GdFieldGet("C6_PRODUTO")))
+			EndIf		
+			
+			If Empty(SB5->B5_XDTPUBL) .And. cFilAnt <> "7001"
+				If !("SCHEDULE" $ upper(alltrim(GetEnvServer())) )
+					MsgBox("Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto sem data de publica็ใo informada!","Aten็ใo")
+					_lRet	:= .F.
+				Else
+					_lRet	:= .F.					
+				EndIf
+				AutoGrLog( "M410LIOK - Filial:"+cFilant+" Pedido: "+M->C5_NUM+" "+DtoC(DDataBase)+" "+Time() )				
+				AutoGrLog( "M410LIOK - Erro - Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto sem data de publica็ใo informada!","Aten็ใo" )			
+			EndIf
+			 
+		EndIf
+	endIf
+EndIf
+
+If cFilAnt == "1022" .AND. !ISINCALLSTACK("U_GENA006") .AND. !ISINCALLSTACK("U_GENA082") .AND. !ISINCALLSTACK("U_GENA082P")
+	If _lRet .AND. !("SCHEDULE" $ upper(alltrim(GetEnvServer())) )
+		If GdFieldGet("C6_TES") <> SF4->F4_CODIGO
+			SF4->(DbSetOrder(1))
+			SF4->(DbSeek( xFilial("SF4") + GdFieldGet("C6_TES") ))			
+		EndIf
+
+		If  !Empty(AllTrim(SF4->F4_XCONTA)) .and. ( SF4->F4_LFICM <> 'N' .OR. SF4->F4_LFIPI <> 'N' .OR. SF4->F4_LFISS <> 'N' .OR. SF4->F4_PISCOF <> '4' )
+			If Empty(GdFieldGet("C6_CONTA"))
+				 _lRet := .F.
+				 If ( upper(alltrim(GetEnvServer())) $ "SCHEDULE" )
+				 	AutoGrLog( "M410LIOK - Conta contabil nใo informada para o item "+GdFieldGet("C6_TES")+" e TES que gera livro fiscal!" )						
+				 Else
+				 	MsgStop( "M410LIOK - Conta contabil nใo informada para o item "+GdFieldGet("C6_TES")+" e TES que gera livro fiscal!" )
+				 EndIf
+			EndIf
+		EndIf		 
+	EndIf	
+	
+	/*
+	// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+	If GdFieldGet("C6_TES") <> SF4->F4_CODIGO
+		SF4->(DbSetOrder(1))
+		SF4->(DbSeek(xFilial("SF4")+GdFieldGet("C6_TES")))
+	EndIf
+	
+	IF SF4->F4_PODER3 $ "R$D"
+		// verifica็ใo para nใo realizar dbseek desnecessario impactando em notas com 99 itens
+		If AllTrim(SB5->B5_COD) <> AllTrim(GdFieldGet("C6_PRODUTO")) 
+			SB5->(DbSetOrder(1))
+			SB5->(DbSeek(xFilial("SB5")+GdFieldGet("C6_PRODUTO")))
+		EndIf
+		If SB5->B5_XCONSIG == "0"
+			If !("SCHEDULE" $ upper(alltrim(GetEnvServer())) )
+				MsgBox("Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto nใo permite consigna็ใo!","Aten็ใo")
+				_lRet	:= .F.
+			Else
+				_lRet	:= .F.
+				AutoGrLog( "M410LIOK - Filial:"+cFilant+" Pedido: "+M->C5_NUM+" "+DtoC(DDataBase)+" "+Time() )				
+				AutoGrLog( "Item: "+GdFieldGet("C6_ITEM")+", Produto: "+AllTrim(GdFieldGet("C6_PRODUTO"))+" - Produto nใo permite consigna็ใo!","Aten็ใo" )					
+			EndIf				
+		EndIf		
+	EndIF
+	*/
+EndIf
+					
+//Executa a validacao somente na tela de pedido de venda
+If _lRet .AND.  FunName()=='MATA410'  
+
+   //Bloqueio venda Atlas - 23/07/2015
+	If SB1->B1_XEMPRES == "42" .and. GetMv("GEN_FAT082")
+		RestArea(aAreaSB1)
+	 	msgstop("Obra Atlas indisponํvel no sistema.")	   
+	 	return .F.
+    Endif 
+    
+	//Verifica se pode fazer oferta e se o item ja consta no pedido
+	_lRet := f001() .and. f002() .and. f004()
+			
+Endif
+
+//01/12/2015 - Rafael Leite - Bloqueia digita็ใo de novos pedidos sem o devido faturamento do backlog
+If _lRet .AND. !(upper(alltrim(GetEnvServer())) $ "SCHEDULE") ; 						//Verifica se nใo ้ ambiente schedule
+.and. FunName()=='MATA410' ;												//Verifica se estแ na tela de pedido de vendas
+.and. _lRet ;																//Verifica se retornou positivamente nas valida็๕es acima
+.and. GetMV("GEN_FAT088");													//Verifica se valida็ใo estแ habilitada
+.and. ! RetCodUsr()$Getmv("GEN_FAT090")                             
+
+	//Verifica pedidos parados a mais de tr๊s dias
+	f006()
+    
+	If PARAMIXB:NOPC == 3
+		_lRet := f005()
+	Endif
+	
+Endif
+
+
+//ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+//ณValida็ใo de desconto.ณ    
+//ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+If _lRet .and. !Empty(M->C5_TABELA) .AND. !IsInCallStack("U_GENA006") .AND. FunName() <> "GENA006" .AND. !IsInCallStack("U_GENA020") .AND. FunName() <> "GENA020" .AND. !IsInCallStack("U_GERNI023") .AND. FunName() <> "GERNI023";
+	.AND. !( AllTrim(M->C5_CLIENTE) $ '0380795#0380796#0380794#031811#0378128#0005065') .AND. !(upper(alltrim(GetEnvServer())) $ "SCHEDULE")
+	cProbDesc	:= ""
+	
+	For nVldDesc := 1 To Len(aCols)
+		
+		If GdDeleted( nVldDesc , aHeader , aCols )
+			Loop
+		EndIf
+		
+		DA1->( DbSetOrder(1) )
+		DA1->(dbSeek(xFilial("DA1")+M->C5_TABELA+aCols[nVldDesc][GdFieldPos("C6_PRODUTO",aHeader)] ))	
+		
+		nValBrut	:= aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]*DA1->DA1_PRCVEN
+		nValLiq		:= aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]*aCols[nVldDesc][GdFieldPos("C6_PRCVEN",aHeader)]
+		
+		Do Case
+			/* verifico se o valor do desconto calculado pelo protheus ้ o mesmo do valor total do item */
+			Case NoRound(nValLiq,0) <> NoRound(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)],0)
+				_lRet := .F.
+				cProbDesc+= "Valor total liquido calculado diferente do valor calculado pelo Protheus para o item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado "+AllTrim(Transform(nValLiq, "@E 999,999,999.99"))+" valor do Protheus"+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)], "@E 999,999,999.99"))+chr(13)+chr(10)
+				
+			/* verifico de o valor bruto da tabela de pre็o aplicando o campo valor do desconto do pedido ้ o mesmo que o valor total calculado pelo protheus  */	
+			Case NoRound(nValBrut-aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)],0) <> NoRound(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)],0)
+				_lRet := .F.
+				cProbDesc+= "Valor total calculo diferente do valor total do protheus para o item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado "+AllTrim(Transform(Round(nValBrut-aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)],2), "@E 999,999,999.99"))+" valor Protheus "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)], "@E 999,999,999.99"))
+				
+			/* verifico de o valor bruto da tabela de pre็o aplicando o campo % do desconto do pedido ้ o mesmo que o valor total calculado pelo protheus  */	
+			//Case Round(nValBrut-((GdFieldPos("C6_DESCONT",aHeader)/100)*GdFieldPos("C6_QTDVEN",aHeader)),2) <> GdFieldPos("C6_VALOR",aHeader)
+			Case NoRound(A410Arred( nValBrut - (((aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)]/100)*DA1->DA1_PRCVEN )*aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]), "C6_VALOR" ),0) <> NoRound(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)],0)
+				_lRet := .F.
+				cProbDesc+= "Valor total calculo diferente do valor total do protheus para o item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado "+AllTrim(Transform( A410Arred( nValBrut - (((aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)]/100)*DA1->DA1_PRCVEN )*aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]), "C6_VALOR" ) , "@E 999,999,999.99"))+" valor Protheus "+AllTrim(Transform(NoRound(aCols[nVldDesc][GdFieldPos("C6_VALOR",aHeader)],0), "@E 999,999,999.99"))
+			/* verifico se os valores dos campos de desconto % e valor estใo corretos */
+			Case	NoRound((((aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)]/100)*DA1->DA1_PRCVEN )*aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]) ,0) - NoRound(aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)]	,0) < (-2) .OR.;
+					NoRound((((aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)]/100)*DA1->DA1_PRCVEN )*aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]) ,0) - NoRound(aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)]	,0) > 2
+					
+				_lRet := .F.
+				cProbDesc+= "Campo Valor do desconto diferente do percentual do desconto item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado com % de desconto "+Transform(Round((((aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)]/100)*DA1->DA1_PRCVEN )*aCols[nVldDesc][GdFieldPos("C6_QTDVEN",aHeader)]) ,2), "@E 999,999,999.99")+" valor do campo 'valor desconto' do Protheus "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)], "@E 999,999,999.99"))
+			Case aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)] <> 0 .AND. aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)] == 0
+				_lRet := .F.
+				cProbDesc+= "Campo Valor do desconto diferente do percentual do desconto item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado com % de desconto "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)], "@E 999,999,999.99"))+" valor do campo 'valor desconto' do Protheus "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)], "@E 999,999,999.99"))			
+			Case aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)] <> 0 .AND. aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)] == 0
+				_lRet := .F.
+				cProbDesc+= "Campo Valor do desconto diferente do percentual do desconto item "+aCols[nVldDesc][GdFieldPos("C6_ITEM",aHeader)]+" valor calculado com % de desconto "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_DESCONT",aHeader)], "@E 999,999,999.99"))+" valor do campo 'valor desconto' do Protheus "+AllTrim(Transform(aCols[nVldDesc][GdFieldPos("C6_VALDESC",aHeader)], "@E 999,999,999.99"))							
+		EndCase
+			
+	Next
+	
+	If !Empty(cProbDesc)
+		/* armazena log caso seja execauto */
+		AutoGrLog( "M410LIOK - Erro de desconto no pedido: "+M->C5_NUM+" "+DtoC(DDataBase)+" "+Time() )
+		AutoGrLog( "M410LIOK - Filial:"+cFilant+" Pedido: "+M->C5_NUM )				
+		AutoGrLog( "M410LIOK - Erro:"+cProbDesc )
+		
+		If !("SCHEDULE" $ upper(alltrim(GetEnvServer())) )
+			/* alert caso seja em tela */
+			xMagHelpFis("Valor do pedido incorreto",cProbDesc,"Verifique se os campos % Desconto, Valor Desconto e Valor total estใo corretos e tente novamente")		
+			/* envia e-mail para o TI */
+		Else
+			/* envia e-mail para o TI */
+			U_GenSendMail(,,,"noreply@grupogen.com.br","cleuto.lima@grupogen.com.br",oemtoansi("Erro de desconto no pedido: "+M->C5_NUM+" - "+DtoC(DDataBase)+" "+Time()),cProbDesc,,,.F.)										
+		EndIf
+	EndIf
+	
+EndIf
+	
+RestArea(_aArea)
+RestArea(aAreaSB1)
+RestArea(aAreaDA1)
+conout("M410LIOK - "+IIF(_lRet,"VERDADEIRO","FALSO"))
+Return _lRet
+ 
+//Valida se produto e tes permitem oferta e se permite exportacao
+Static Function f001
+
+Local _lValid := .T.
+Local _cSQL := ""
+Local _cAlias1 := GetNextAlias()
+Local _cAlias2 := GetNextAlias()
+
+lCheck := Posicione("SB1",1,xFilial("SB1")+GdFieldGet("C6_PRODUTO"),"B1_GRUPO") <> "9999" //ADICIONADO POR DANILO AZEVEDO - 03/03/2015
+
+If lCheck
+	
+	_cSQL := " SELECT B5_COD, B5_XOFERT, B5_XEXPORT "
+	_cSQL += " FROM " + RetSqlName("SB5") + " SB5 "
+	_cSQL += " WHERE SB5.B5_FILIAL = '" + xFilial("SB5") + "' "
+	_cSQL += " AND SB5.B5_COD = '" + GdFieldGet("C6_PRODUTO") + "' "
+	_cSQL += " AND SB5.D_E_L_E_T_ = ' ' "
+	
+	TCQUERY _cSQL NEW ALIAS (_cAlias1)
+	
+	_cSQL := " SELECT F4_CODIGO, F4_XTPCONT"
+	_cSQL += " FROM " + RetSqlName("SF4") + " SF4 "
+	_cSQL += " WHERE SF4.F4_FILIAL = '" + xFilial("SF4") + "' "
+	_cSQL += " AND SF4.F4_CODIGO = '" + GdFieldGet("C6_TES") + "' "
+	_cSQL += " AND SF4.D_E_L_E_T_ = ' ' "
+	
+	TCQUERY _cSQL NEW ALIAS (_cAlias2)
+	
+	//Verifica se encontrou dados corretos
+	If Empty((_cAlias2)->F4_CODIGO) .or. Empty((_cAlias1)->B5_COD)
+		_lValid := .F.
+		MsgStop('M410LIOK - 1 - Falha no posicionamento das tabelas.')
+		
+		//Verifica se bloqueia por oferta
+		//F4_XTPCONT == '1' - TES de oferta
+		//B5_XOFERT <> '1' - Produto nao estah configurado como oferta
+
+	ElseIf (_cAlias2)->F4_XTPCONT == '1' .and. (_cAlias1)->B5_XOFERT <> '1'
+		_lValid := .F.
+		MsgStop('Este produto nใo pode ser ofertado. Verifique o cadastro do produto ou selecione outro TES.')
+
+	Endif
+	
+	If _lValid .and. (_cAlias1)->B5_XEXPORT <> '1' .and. Posicione("SA1",1,xFilial("SA1")+M->C5_CLIENTE+M->C5_LOJACLI,"A1_EST") = "EX"
+		_lValid := .F.
+		MsgBox("Este produto nใo pode ser exportado. Verifique o cadastro do produto e/ou cliente.","Aten็ใo")
+	Endif
+
+	(_cAlias1)->(DbCloseArea())
+	(_cAlias2)->(DbCloseArea())
+	
+Endif
+
+Return _lValid
+
+
+/*/
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+ฑฑษออออออออออัออออออออออหอออออออัออออออออออออออออออออหออออออัอออออออออออออปฑฑ
+ฑฑบFuncao    ณf002      บAutor  ณDanilo Azevedo      บ Data ณ  24/03/15   บฑฑ
+ฑฑฬออออออออออุออออออออออสอออออออฯออออออออออออออออออออสออออออฯอออออออออออออนฑฑ
+ฑฑบDesc.     ณValidacao de produto duplicado no pedido.                   บฑฑ
+ฑฑบ          ณ                                                            บฑฑ
+ฑฑฬออออออออออุออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออนฑฑ
+ฑฑบUso       ณ GEN - Faturamento                                          บฑฑ
+ฑฑศออออออออออฯออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผฑฑ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿
+/*/
+
+Static Function f002()
+
+Local _nProd := ascan(aHeader,{|x| alltrim(x[2])=="C6_PRODUTO"})
+Local _nIt := ascan(aHeader,{|x| alltrim(x[2])=="C6_ITEM"})
+Local _nTES := ascan(aHeader,{|x| alltrim(x[2])=="C6_TES"})
+Local _aProd := {}
+Local _lOk := .T.
+Local lSepPed := .T.
+
+Local cProd
+Local cIt
+Local cTES
+
+For _nx:=1 To Len(aCols)
+	
+	If !GDDeleted(_nx) // Verifica se a linha do acols estแ deletada
+		
+		aSort(_aProd)
+		cProd := aCols[_nx][_nProd]
+		cIt := aCols[_nx][_nIt]
+		cTES := aCols[_nx][_nTES]
+		
+		If !Empty(cTES)
+			lSepPed := Posicione("SF4",1,xFilial("SF4")+cTES,"F4_XSEPPED")="1" //TES SEPARA PEDIDO
+		Else
+			lSepPed := .T.
+		Endif
+		
+		bSeek := {|x| x[1] == cProd}
+		
+		If aScan(_aProd,bSeek) > 0
+			If lSepPed
+				MsgBox("Produto "+alltrim(cProd)+" em duplicidade no item "+alltrim(cIt)+" com TES integrada ao sistema de endere็amento (Separa Pedido). Corrija e tente novamente.","Aten็ใo")
+				If Inclui
+					_lOk := .F.
+				Endif
+			Else
+				MsgAlert("Produto "+alltrim(cProd)+" em duplicidade no item "+alltrim(cIt)+".","Alerta")
+				_lOk := .T.
+			Endif
+		Else
+			aAdd(_aProd,{aCols[_nx][_nProd],cIt})
+		Endif
+	Endif
+	
+Next _nx
+
+Return(_lOk)
+
+
+
+/*/
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+ฑฑษออออออออออัออออออออออหอออออออัออออออออออออออออออออหออออออัอออออออออออออปฑฑ
+ฑฑบFuncao    ณf003      บAutor  ณDanilo Azevedo      บ Data ณ  01/06/15   บฑฑ
+ฑฑฬออออออออออุออออออออออสอออออออฯออออออออออออออออออออสออออออฯอออออออออออออนฑฑ
+ฑฑบDesc.     ณValidacao de armazem selecionado quando operacao de acerto  บฑฑ
+ฑฑบ          ณde cliente.                                                 บฑฑ
+ฑฑฬออออออออออุออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออนฑฑ
+ฑฑบUso       ณ GEN - Faturamento                                          บฑฑ
+ฑฑศออออออออออฯออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผฑฑ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿
+/*/
+Static Function f003()
+
+Local _lOk := .T.
+Local _nTES := ascan(aHeader,{|x| alltrim(x[2])=="C6_TES"})
+Local _nLoc := ascan(aHeader,{|x| alltrim(x[2])=="C6_LOCAL"})
+Local cTES := aCols[_nx][_nTES]
+Local cLoc := aCols[_nx][_nLoc]
+Local _cArmUti	:= GetMv("GEN_FAT072")		//Armazem utilizado da nota fiscal de saํda
+Local _cTESGEN	:= GetMv("GEN_FAT073")		//TES consideradas na nota de entrada
+
+If alltrim(cTES) $ alltrim(_cTESGEN) .and. alltrim(_cArmUti) <> cLoc
+	MsgBox("Certifique-se de que o local indicado estแ correto para esta opera็ใo.","Aten็ใo")
+	_lOk := .F.
+Endif
+
+Return(_lOk)
+
+
+/*/
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+ฑฑษออออออออออัออออออออออหอออออออัออออออออออออออออออออหออออออัอออออออออออออปฑฑ
+ฑฑบFuncao    ณf004      บAutor  ณDanilo Azevedo      บ Data ณ  13/07/15   บฑฑ
+ฑฑฬออออออออออุออออออออออสอออออออฯออออออออออออออออออออสออออออฯอออออออออออออนฑฑ
+ฑฑบDesc.     ณValidacao de desconto negativo.                             บฑฑ
+ฑฑฬออออออออออุออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออนฑฑ
+ฑฑบUso       ณ GEN - Faturamento                                          บฑฑ
+ฑฑศออออออออออฯออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผฑฑ
+ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿
+/*/
+Static Function f004()
+
+Local _lOk := .T.
+Local _nPVDesc := ascan(aHeader,{|x| alltrim(x[2])=="C6_VALDESC"})
+Local nVlDesc := 0
+
+For _nx:=1 To Len(aCols)
+	nVlDesc := aCols[_nx][_nPVDesc]
+	
+	If nVlDesc < 0
+		MsgBox("O valor de desconto ้ invแlido. Para ajustar, confirme novamente o Tipo Saida (TES).","Aten็ใo")
+		_lOk := .F.
+	Endif
+Next _nx
+
+Return(_lOk)
+
+//Analise de pedidos digitados pelo usuแrio e nใo faturados
+Static Function f005
+
+Local _cSQL 
+Local _cAlias3 := GetNextAlias()        
+Local _cMsgUsr := "" 
+Local _nPedLib := 0
+      
+	_cSQL := " SELECT 'DIGITADO E NรO FATURADO (VERDE)' SITUACAO, C5_NUM 
+	_cSQL += " FROM " + RetSQLName("SC5") +" SC5
+	_cSQL += " WHERE SC5.C5_FILIAL = '" + xFilial("SC5") + "' 
+	_cSQL += " AND C5_XUSRDIG = '"+PADR(Alltrim(CUSERNAME),TAMSX3("C5_XUSRDIG")[1]) +"'
+	_cSQL += " AND C5_BLQ = ' '
+	_cSQL += " AND C5_NUM <> '"+M->C5_NUM+"' " 
+	_cSQL += " AND SUBSTR(C5_EMISSAO,1,6) = '"+SubStr(DtoS(dDataBase),1,6)+"'
+	_cSQL += " AND SC5.D_E_L_E_T_ = ' ' 
+	_cSQL += " AND NOT EXISTS (SELECT 1 FROM " + RetSQLName("SC9") +" SC9
+	_cSQL += "                 WHERE SC9.C9_FILIAL = SC5.C5_FILIAL
+	_cSQL += "                 AND SC9.C9_PEDIDO = SC5.C5_NUM
+	_cSQL += "                 AND SC9.D_E_L_E_T_ = ' ')
+	
+	/* 28/07/2016 - Rafael Leite - Retirado durante o Protheus Faturamento Protheus x WMS. Mudan็a no processo.
+	_cSQL += " UNION ALL
+	_cSQL += " SELECT 'LIBERADO E NรO FATURADO (AMARELO)', C5_NUM
+	_cSQL += " FROM " + RetSQLName("SC5") +" SC5
+	_cSQL += " WHERE SC5.C5_FILIAL = '"+ xFilial("SC5") +"'
+	_cSQL += " AND C5_XUSRDIG = '"+PADR(Alltrim(CUSERNAME),TAMSX3("C5_XUSRDIG")[1]) +"'
+	_cSQL += " AND C5_BLQ = ' '
+	_cSQL += " AND SUBSTR(C5_EMISSAO,1,6) = '"+SubStr(DtoS(dDataBase),1,6)+"'	
+	_cSQL += " AND SC5.D_E_L_E_T_ = ' '
+	_cSQL += " AND EXISTS (SELECT 1 FROM "+ RetSQLName("SC9") +" SC9
+	_cSQL += "                 WHERE SC9.C9_FILIAL = SC5.C5_FILIAL
+	_cSQL += "                 AND SC9.C9_PEDIDO = SC5.C5_NUM
+	_cSQL += "                 AND SC9.C9_BLCRED = ' '
+	_cSQL += "                 AND SC9.C9_BLEST = ' '
+	_cSQL += "                 AND SC9.C9_NFISCAL = ' '
+	_cSQL += "                 AND SC9.C9_SERIENF = ' '
+	_cSQL += "                 AND SC9.D_E_L_E_T_ = ' ')
+	*/
+	
+	If Select(_cAlias3) > 0
+		DbSelectArea(_cAlias3)
+		DbCloseArea()
+	Endif
+	
+	TCQUERY _cSQL NEW ALIAS (_cAlias3)  	
+    
+	If !Empty((_cAlias3)->SITUACAO)
+	
+		_cMsgUsr := "Aten็ใo! Existem pedidos digitados por voc๊ que nใo foram finalizados." + Chr(13) + Chr(10)
+		_cMsgUsr += "Finalize o processo desses pedidos para iniciar novos. Pedidos:" + Chr(13) + Chr(10)
+		
+		_nPedLib := 0
+		
+		While !(_cAlias3)->(EOF())
+            
+			_nPedLib++
+			
+			_cMsgUsr += (_cAlias3)->SITUACAO + " - " + (_cAlias3)->C5_NUM + Chr(13) + Chr(10) 
+			
+			(_cAlias3)->(DbSkip())
+		End
+		
+		If _nPedLib > GetMV("GEN_FAT089")
+				
+			Alert(_cMsgUsr)
+			
+			Return(.F.)
+		Endif
+	Endif
+
+Return(.T.)
+
+//Analise de pedidos digitados pelo usuแrio e nใo faturados
+Static Function f006
+
+Local _cSQL 
+Local _cAlias3 := GetNextAlias()        
+Local _cMsgUsr := "" 
+Local _nPedLib := 0
+      
+	_cSQL := " SELECT 'DIGITADO E NรO FATURADO (VERDE)' SITUACAO, C5_NUM 
+	_cSQL += " FROM " + RetSQLName("SC5") +" SC5
+	_cSQL += " WHERE SC5.C5_FILIAL = '" + xFilial("SC5") + "' 
+	_cSQL += " AND C5_XUSRDIG = '"+PADR(Alltrim(CUSERNAME),TAMSX3("C5_XUSRDIG")[1]) +"'
+	_cSQL += " AND C5_BLQ = ' '
+	_cSQL += " AND C5_NUM <> '"+M->C5_NUM+"' "
+	_cSQL += " AND C5_EMISSAO >= '"+DtoS(dDataBase-3)+"'
+	_cSQL += " AND SC5.D_E_L_E_T_ = ' ' 
+	_cSQL += " AND NOT EXISTS (SELECT 1 FROM " + RetSQLName("SC9") +" SC9
+	_cSQL += "                 WHERE SC9.C9_FILIAL = SC5.C5_FILIAL
+	_cSQL += "                 AND SC9.C9_PEDIDO = SC5.C5_NUM
+	_cSQL += "                 AND SC9.D_E_L_E_T_ = ' ')
+	
+	/* 28/07/2016 - Rafael Leite - Retirado durante o Protheus Faturamento Protheus x WMS. Mudan็a no processo.
+	_cSQL += " UNION ALL
+	_cSQL += " SELECT 'LIBERADO E NรO FATURADO (AMARELO)', C5_NUM
+	_cSQL += " FROM " + RetSQLName("SC5") +" SC5
+	_cSQL += " WHERE SC5.C5_FILIAL = '"+ xFilial("SC5") +"'
+	_cSQL += " AND C5_XUSRDIG = '"+PADR(Alltrim(CUSERNAME),TAMSX3("C5_XUSRDIG")[1]) +"'
+	_cSQL += " AND C5_BLQ = ' '
+	_cSQL += " AND C5_EMISSAO >= '"+DtoS(dDataBase-3)+"'	
+	_cSQL += " AND SC5.D_E_L_E_T_ = ' '
+	_cSQL += " AND EXISTS (SELECT 1 FROM "+ RetSQLName("SC9") +" SC9
+	_cSQL += "                 WHERE SC9.C9_FILIAL = SC5.C5_FILIAL
+	_cSQL += "                 AND SC9.C9_PEDIDO = SC5.C5_NUM
+	_cSQL += "                 AND SC9.C9_BLCRED = ' '
+	_cSQL += "                 AND SC9.C9_BLEST = ' '
+	_cSQL += "                 AND SC9.C9_NFISCAL = ' '
+	_cSQL += "                 AND SC9.C9_SERIENF = ' '
+	_cSQL += "                 AND SC9.D_E_L_E_T_ = ' ')
+	*/
+	
+	If Select(_cAlias3) > 0
+		DbSelectArea(_cAlias3)
+		DbCloseArea()
+	Endif
+	
+	TCQUERY _cSQL NEW ALIAS (_cAlias3)  	
+    
+	If !Empty((_cAlias3)->SITUACAO)
+	
+		_cMsgUsr := "PEDIDOS PARADOS A MAIS DE TRสS DIAS!" + Chr(13) + Chr(10)
+		_cMsgUsr += Chr(13) + Chr(10)
+		_cMsgUsr += "Aten็ใo! Existem pedidos digitados por voc๊ que nใo foram finalizados." + Chr(13) + Chr(10)
+		_cMsgUsr += "Finalize o processo desses pedidos para iniciar novos. Pedidos:" + Chr(13) + Chr(10)
+				
+		While !(_cAlias3)->(EOF())
+            			
+			_cMsgUsr += (_cAlias3)->SITUACAO + " - " + (_cAlias3)->C5_NUM + Chr(13) + Chr(10) 
+			
+			(_cAlias3)->(DbSkip())
+		End
+				
+		Alert(_cMsgUsr)
+			
+	Endif
+Return

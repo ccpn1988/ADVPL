@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<title>RH Online</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<link href="css/estilos.css"	rel="stylesheet" type="text/css"		media="all" />
+	<script type="text/javascript"	src="js/scripts.js"></script>
+	<%=u_w_TcfStyle()%>
+</head>
+<body>
+	<div id="wrap_b2c">
+<!--// TOPO //////////////////////-->
+		<div id="top">
+			<h1>RH Online</h1>
+		</div>
+<!--// INÍCIO DA COLUNA PERFIL //////////////////////-->
+		<div id="perfil">
+			<!--// IDENTIFICAÇÃO //////////////////////-->
+			<%=U_W_TcfId()%>
+			<!--// MENU GLOBAL //////////////////////-->
+			<%=U_W_TcfGlbMnu()%>
+		</div>
+<!--// FIM DA COLUNA PERFIL //////////////////////-->
+<!--// MENU AÇÕES (IMPRIMIR e SAIR) //////////////////////-->
+		<ul id="menu_acoes">
+			<!--<li><a href="#"><img src="imagens/b2c/btn_imprimir.gif" alt="Imprimir" /><span>&nbsp;</span></a></li>-->
+			<%= u_w_TcfSair() %>
+		</ul>
+<!--// CONTEÚDO //////////////////////-->
+		<div id="conteudo">
+			<h2><img src="imagens/b2c/ttl_alterar_senha.gif" alt="Alterar Senha" /><span>Alterar Senha</span></h2>
+			<form method="post" action="u_w_TCFUpdPsw.apw" name="alterarsenha" id="alterar_senha">
+				<fieldset>
+					<label>Empresa/Filial:</label>
+					<select name="cEmpFil" id="empresa">
+						<%= u_w_EmpSelected() %>
+					</select>
+					<br />
+					<label>Matr&iacute;cula:</label>
+					<input type="text" name="cMatricula" id="Matricula" size="6" maxlength="6" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,6,6,'Matrícula')" onKeyUp="autotab(this);"/>
+					<br />
+					<label>C.P.F.:</label>
+					<input type="text" name="cCPF" id="cCPF" size="11" maxlength="11" onKeyPress="return IsNumber()" onKeyUp="autotab(this);"/>
+					<br />
+					<label>Admissão:</label>
+					<input type="text" name="cDiaAdmissao" id="cDiaAdmissao" size="2" maxlength="2" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,2,2,'Dia de Admissão')" onKeyUp="autotab(this);"/>
+					<input type="text" name="cMesAdmissao" id="cMesAdmissao" size="2" maxlength="2" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,2,2,'Mês de Admissão')" onKeyUp="autotab(this);"/>
+					<input type="text" name="cAnoAdmissao" id="cAnoAdmissao" size="4" maxlength="4" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,4,4,'Ano de Admissão')" onKeyUp="autotab(this);"/>
+					<br />
+					<label>Nascimento:</label>
+					<input type="text" name="cDiaNascimento" id="cDiaNascimento" size="2" maxlength="2" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,2,2,'Dia de Nascimento')" onKeyUp="autotab(this);"/>
+					<input type="text" name="cMesNascimento" id="cMesNascimento" size="2" maxlength="2" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,2,2,'Mês de Nascimento')" onKeyUp="autotab(this);"/>
+					<input type="text" name="cAnoNascimento" id="cAnoNascimento" size="4" maxlength="4" onKeyPress="return IsNumber()" onBlur="MinMaxChar(this,4,4,'Ano de Nascimento')" onKeyUp="autotab(this);"/>
+					<br />			
+					<label>Senha Anterior:</label>
+					<input type="password" name="cPassWord" id="cPassWord" size="6" maxlength="6" onKeyPress="return letternumber(event)" onKeyUp="autotab(this);"/>
+					<br />
+					<label>Nova Senha:</label>
+					<input type="password" name="cNewPassWord" id="cNewPassWord" size="6" maxlength="6" onKeyPress="return letternumber(event)" onKeyUp="autotab(this);"/>
+					<br />
+					<label>Confirme a Senha:</label>
+					<input type="password" name="cConNewPassWord" id="cConNewPassWord" size="6" maxlength="6" onKeyPress="return letternumber(event)" onblur="ChkNewPassWord()" onKeyUp="autotab(this);"/>
+					<br />
+					<!--<button type="reset" class="btn_cinza"><span><em>Limpar</em></span></button>-->
+					<button type="submit" name="alterar_senha" onclick="return verificaCampoVazio('alterarsenha');"><span><em>Alterar</em></span></button>
+				</fieldset>
+			</form>
+		</div>
+<!--// RODAPÉ //////////////////////-->
+	<address><span>Designed by NaldoDj</span></address>
+</div>
+</body>
+</html>

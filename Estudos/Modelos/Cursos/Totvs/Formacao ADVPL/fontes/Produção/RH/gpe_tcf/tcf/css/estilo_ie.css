@@ -1,0 +1,120 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@media screen{
+	
+}
+
+
+/*________ HOME B2B ____________________________________________
+____________________________________________________________
+______________________________________________________*/
+
+#wrap_b2b{
+	background: url(../imagens/b2b/top_home_b2b.png) no-repeat top center !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/top_home_b2b.png,sizingMethod='crop');
+	}
+
+#conteudo_b2b h1{
+	background:url(../imagens/b2b/ttl_bem_vindo.png) no-repeat top center !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/ttl_bem_vindo.png,sizingMethod='crop');
+	}
+	
+#conteudo_b2b form#login{
+	background: url(../imagens/b2b/bg_login.png) no-repeat center center !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/bg_login.png,sizingMethod='crop');
+	}
+	
+#conteudo_b2b form#login h2{
+	background:url(../imagens/b2b/ttl_login.png) no-repeat center left !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/ttl_login.png,sizingMethod='crop');
+	}
+	
+#conteudo_b2b form#login #label_empresa{
+	background:url(../imagens/b2b/label_empresa.png) no-repeat left top !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/label_empresa.png,sizingMethod='crop');
+	}
+	
+#conteudo_b2b form#login #label_matricula{
+	background:url(../imagens/b2b/label_matricula.png) no-repeat left top !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/label_matricula.png,sizingMethod='crop');
+	}
+	
+#conteudo_b2b form#login #label_senha{
+	background:url(../imagens/b2b/label_senha.png) no-repeat left top !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/label_senha.png,sizingMethod='crop');
+	}
+	
+address{
+	background:url(../imagens/commons/bg_rodape.png) no-repeat bottom center !important;
+	background: none;
+	filter: none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=imagens/b2b/bg_rodape.png,sizingMethod='image');
+	}
+	
+form#login button{
+	margin:0 0 0 0;
+	}
+	
+form#login .btn_cinza{
+	margin:0 6px 0 0;
+	}
+	
+	
+	
+	
+/*________ INTERNAS B2C _________________________________________
+____________________________________________________________
+______________________________________________________*/
+	
+	
+	
+/*________ PERFIL _________________________*/
+
+#perfil{
+	margin:0 0 0 20px !important;
+	margin:0 0 0 10px;
+	}
+	
+#menu_global{
+	padding-left: 0;
+	}
+
+	
+ul#menu_global li ul li a{
+	display:inline;
+	padding: 0 0 0 8px;
+	}
+	
+	
+/*________ MENU AÇÕES (IMPRIMIR e SAIR) _____________*/
+
+#menu_acoes{
+	margin:0 20px 0 0 !important;
+	margin:0 10px 0 0;
+	}
+	
+	
+	
+/*________ CONTEUDO ______________________________*/
+
+#conteudo{
+	margin:0 20px 0 0 !important;
+	margin:0 10px 0 0;
+	}
+
+

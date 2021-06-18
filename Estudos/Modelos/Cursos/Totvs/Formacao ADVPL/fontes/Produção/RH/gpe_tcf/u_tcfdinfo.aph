@@ -1,0 +1,16 @@
+<!--// CONTEÚDO //////////////////////-->
+<table id="tab_demonst" cellspacing="0" cellpadding="0" summary="Tabela descrevendo informações de funcionários e sua folha de pagamento.">
+	<tr>
+		<td>
+			<div id="container">
+				<img src="imagens/commons/img_atencao.gif" alt="Aten&ccedil;&atilde;o" />
+				<p id="erro">
+					<span>Prezado Colaborador.</span>
+				</p>
+				<br/>
+				<%=HttpSession->cDefMsg%>
+				<div class="linha"></div>
+			</div>
+		</td>
+	</tr>
+</table>

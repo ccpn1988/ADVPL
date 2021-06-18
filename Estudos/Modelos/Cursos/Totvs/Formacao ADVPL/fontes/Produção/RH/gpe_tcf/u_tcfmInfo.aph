@@ -1,0 +1,11 @@
+<!--// CONTEÚDO //////////////////////-->
+	<div id="container">
+		<img src="imagens/commons/img_atencao.gif" alt="Aten&ccedil;&atilde;o" />
+		<p id="erro">
+			<span>Prezado Colaborador.</span>
+			<br/>
+			<%=HttpSession->cDefMsg%>
+		</p>
+		<div class="linha"></div>
+	</div>
+</div>

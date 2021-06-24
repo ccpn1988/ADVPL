@@ -12,24 +12,24 @@ aMatriz2[2,1] := "Ana"
 aMatriz2[2,2] := 42
 aMatriz2[2,3] := "F"
 
-//INCLUIR REGISTRO
+// INCLUIR REGISTRO
 AADD(aMatriz2,{"BRUNO"	 ,25, "M"})
 AADD(aMatriz2,{"ANTONIO" ,30, "M"})
 AADD(aMatriz2,{"JOAO"	 ,48, "M"})
 AADD(aMatriz2,{"JOSÉ"	 ,26, "M"})
-//BUSCA NOME AO QUAL CONTEUDO 2 DO ARRAY 48
+// BUSCA NOME AO QUAL CONTEUDO 2 DO ARRAY 48
 nPos:= ASCAN(aMatriz2,{|x| X[2] == 48})
-	MSGINFO(aMatriz2[nPos,1])//PEGA CONTEUDO 1 ARMAZENADO EM FOR
+	MSGINFO(aMatriz2[nPos,1]) //PEGA CONTEUDO 1 ARMAZENADO EM FOR
 	
 
-//TRAZ TODOS OS DADOS
+// TRAZ TODOS OS DADOS
 /*FOR x := 1 TO LEN(aMatriz2)//x seria coluna
 	MSGINFO("Nome: " + aMatriz2[x,1] + CRLF +;
 			"Idade: " + cValToChar(aMatriz2[x,2]) + CRLF +;
 			"Sexo: " + IIF(aMatriz2[x,3] =="M","MASCULINO","FEMININO"))
 NEXT x*/
 
-//TRAZ TODOS OS DADOS
+// TRAZ TODOS OS DADOS
 /*FOR X := 1 TO LEN(aMatriz2)
 FOR Y := 1 TO LEN(aMatriz2[X])
 	MSGINFO(aMatriz2[X,Y])

@@ -5,10 +5,10 @@ local aMatriz := {}
 local aMatriz2 := Array(2,3) //ARRAY(COLUNA,LINHAS)
 local x
 aMatriz2[1,1] := "MARIA"
-aMatriz2[1,2] := 30
-aMatriz2[1,3] := "F"
+aMatriz2[1,2] := 50
+aMatriz2[1,3] := "M"
 
-aMatriz2[2,1] := "Ana"
+aMatriz2[2,1] := "JULIA"
 aMatriz2[2,2] := 42
 aMatriz2[2,3] := "F"
 

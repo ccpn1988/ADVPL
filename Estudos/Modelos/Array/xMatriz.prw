@@ -10,6 +10,7 @@ aMatriz2[1,2] := 50
 aMatriz2[1,3] := "M"
 =======
 aMatriz2[1,1] := "CAIO NEVES"
+aMatriz2[1,2] := 30
 aMatriz2[1,3] := "F"
 >>>>>>> Stashed changes
 

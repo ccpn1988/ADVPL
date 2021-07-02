@@ -4,9 +4,14 @@ User Function xMatriz()
 local aMatriz := {} 
 local aMatriz2 := Array(2,3) //ARRAY(COLUNA,LINHAS)
 local x
+<<<<<<< Updated upstream
 aMatriz2[1,1] := "MARIA"
 aMatriz2[1,2] := 50
 aMatriz2[1,3] := "M"
+=======
+aMatriz2[1,1] := "CAIO NEVES"
+aMatriz2[1,3] := "F"
+>>>>>>> Stashed changes
 
 aMatriz2[2,1] := "JULIA"
 aMatriz2[2,2] := 42
